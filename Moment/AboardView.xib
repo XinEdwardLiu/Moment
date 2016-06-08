@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="9046" systemVersion="15B42" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
+    <dependencies>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="9046"/>
+    </dependencies>
+    <objects>
+        <customObject id="-2" userLabel="File's Owner" customClass="AboardViewController">
+            <connections>
+                <outlet property="favoriteListBtn" destination="Z8s-N1-Jsv" id="rEJ-oC-EZv"/>
+                <outlet property="historyListBtn" destination="V2u-eU-M4I" id="R6S-IT-l1F"/>
+                <outlet property="nameLabel" destination="6op-Kz-9HA" id="rsz-oe-2F5"/>
+                <outlet property="quitBtn" destination="CCZ-75-rZm" id="A3D-Am-ebH"/>
+                <outlet property="view" destination="Hz6-mo-xeY" id="0bl-1N-x8E"/>
+            </connections>
+        </customObject>
+        <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
+        <customView id="Hz6-mo-xeY">
+            <rect key="frame" x="0.0" y="0.0" width="179" height="468"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+            <subviews>
+                <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Z8s-N1-Jsv">
+                    <rect key="frame" x="38" y="303" width="102" height="40"/>
+                    <animations/>
+                    <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="favoritelist" imagePosition="overlaps" alignment="center" imageScaling="proportionallyDown" inset="2" id="YL7-BG-F9d">
+                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                        <font key="font" metaFont="system"/>
+                    </buttonCell>
+                </button>
+                <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="V2u-eU-M4I">
+                    <rect key="frame" x="38" y="247" width="102" height="44"/>
+                    <animations/>
+                    <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="HistoryList" imagePosition="overlaps" alignment="center" imageScaling="proportionallyDown" inset="2" id="iW0-S5-aJE">
+                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                        <font key="font" metaFont="system"/>
+                    </buttonCell>
+                </button>
+                <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CCZ-75-rZm">
+                    <rect key="frame" x="45" y="180" width="90" height="37"/>
+                    <animations/>
+                    <buttonCell key="cell" type="square" title="Quit" bezelStyle="shadowlessSquare" image="Quit" imagePosition="left" alignment="center" imageScaling="proportionallyUpOrDown" inset="2" id="wSu-8D-Gvn">
+                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                        <font key="font" metaFont="systemBold" size="16"/>
+                    </buttonCell>
+                    <connections>
+                        <action selector="clickQuitBtn:" target="-2" id="W5q-j9-hu1"/>
+                    </connections>
+                </button>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6op-Kz-9HA">
+                    <rect key="frame" x="51" y="353" width="76" height="25.5"/>
+                    <animations/>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" id="KEz-fN-d8y">
+                        <font key="font" metaFont="system"/>
+                        <color key="textColor" red="0.5" green="0.0" blue="0.5" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zhe-4M-fSg">
+                    <rect key="frame" x="61" y="386" width="57" height="57"/>
+                    <animations/>
+                    <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="NSUser" imagePosition="only" alignment="center" borderStyle="border" imageScaling="proportionallyUpOrDown" inset="2" id="fPH-Rf-uhR">
+                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                        <font key="font" metaFont="system"/>
+                    </buttonCell>
+                    <connections>
+                        <action selector="clickAccountImageBtn:" target="-2" id="baW-nR-Xa7"/>
+                    </connections>
+                </button>
+            </subviews>
+            <animations/>
+        </customView>
+    </objects>
+    <resources>
+        <image name="HistoryList" width="341.27999877929688" height="82.800003051757812"/>
+        <image name="NSUser" width="32" height="32"/>
+        <image name="Quit" width="128" height="128"/>
+        <image name="favoritelist" width="377.51998901367188" height="82.800003051757812"/>
+    </resources>
+</document>
