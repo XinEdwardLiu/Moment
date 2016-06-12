@@ -10,6 +10,7 @@
 #import "MainWindowController.h"
 #import "User.h"
 #import "Movie.h"
+#import "Message.h"
 
 static User *staticUser;
 static BOOL staticAccountState;

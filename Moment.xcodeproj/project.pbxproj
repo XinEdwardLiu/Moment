@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BD011EA21D09B2D300671579 /* FavoriteListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BD011EA01D09B2D300671579 /* FavoriteListViewController.m */; };
+		BD011EA31D09B2D300671579 /* FavoriteListView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BD011EA11D09B2D300671579 /* FavoriteListView.xib */; };
+		BD074D3F1D08CAC2002D4A44 /* MovieDetailCommentTableController.m in Sources */ = {isa = PBXBuildFile; fileRef = BD074D3E1D08CAC2002D4A44 /* MovieDetailCommentTableController.m */; };
 		BD0AC1241D00770100E3E928 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BD0AC1231D00770100E3E928 /* AppDelegate.m */; };
 		BD0AC1271D00770100E3E928 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = BD0AC1261D00770100E3E928 /* main.m */; };
 		BD0AC12A1D00770100E3E928 /* Moment.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = BD0AC1281D00770100E3E928 /* Moment.xcdatamodeld */; };
@@ -35,6 +38,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		BD011E9F1D09B2D300671579 /* FavoriteListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FavoriteListViewController.h; sourceTree = "<group>"; };
+		BD011EA01D09B2D300671579 /* FavoriteListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FavoriteListViewController.m; sourceTree = "<group>"; };
+		BD011EA11D09B2D300671579 /* FavoriteListView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FavoriteListView.xib; sourceTree = "<group>"; };
+		BD074D3D1D08CAC2002D4A44 /* MovieDetailCommentTableController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MovieDetailCommentTableController.h; sourceTree = "<group>"; };
+		BD074D3E1D08CAC2002D4A44 /* MovieDetailCommentTableController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MovieDetailCommentTableController.m; sourceTree = "<group>"; };
 		BD0AC11F1D00770100E3E928 /* Moment.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Moment.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BD0AC1221D00770100E3E928 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		BD0AC1231D00770100E3E928 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -146,9 +154,14 @@
 				BD0AED4E1D02556A003A4B27 /* AboardViewController.h */,
 				BD0AED4F1D02556A003A4B27 /* AboardViewController.m */,
 				BD0AED501D02556A003A4B27 /* AboardView.xib */,
+				BD074D3D1D08CAC2002D4A44 /* MovieDetailCommentTableController.h */,
+				BD074D3E1D08CAC2002D4A44 /* MovieDetailCommentTableController.m */,
 				BD42A6201D07307C00949CDC /* MovieDetailViewController.h */,
 				BD42A6211D07307C00949CDC /* MovieDetailViewController.m */,
 				BD42A6221D07307C00949CDC /* MovieDetailView.xib */,
+				BD011E9F1D09B2D300671579 /* FavoriteListViewController.h */,
+				BD011EA01D09B2D300671579 /* FavoriteListViewController.m */,
+				BD011EA11D09B2D300671579 /* FavoriteListView.xib */,
 				BD0AC1301D00770100E3E928 /* Info.plist */,
 				BD0AC1281D00770100E3E928 /* Moment.xcdatamodeld */,
 				BD0AC1251D00770100E3E928 /* Supporting Files */,
@@ -223,6 +236,7 @@
 			files = (
 				BD42A6241D07307C00949CDC /* MovieDetailView.xib in Resources */,
 				BD0AC12C1D00770100E3E928 /* Assets.xcassets in Resources */,
+				BD011EA31D09B2D300671579 /* FavoriteListView.xib in Resources */,
 				BD0AC1421D00F8DB00E3E928 /* MainWindow.xib in Resources */,
 				BD0AC12F1D00770100E3E928 /* MainMenu.xib in Resources */,
 				BD0AC1471D0109E800E3E928 /* RegisterView.xib in Resources */,
@@ -240,12 +254,14 @@
 			files = (
 				BD0AC1411D00F8DB00E3E928 /* MainWindowController.m in Sources */,
 				BD1E24B61D063A6700FB52E5 /* Music+CoreDataProperties.m in Sources */,
+				BD011EA21D09B2D300671579 /* FavoriteListViewController.m in Sources */,
 				BD42A61F1D071DAD00949CDC /* MainMovieTableController.m in Sources */,
 				BD1E24BB1D063A6700FB52E5 /* Movie.m in Sources */,
 				BD0AED511D02556A003A4B27 /* AboardViewController.m in Sources */,
 				BD1E24B71D063A6700FB52E5 /* Music.m in Sources */,
 				BD42A6231D07307C00949CDC /* MovieDetailViewController.m in Sources */,
 				BD0AC1461D0109E800E3E928 /* RegisterViewController.m in Sources */,
+				BD074D3F1D08CAC2002D4A44 /* MovieDetailCommentTableController.m in Sources */,
 				BD1E24B81D063A6700FB52E5 /* User+CoreDataProperties.m in Sources */,
 				BD1E24B41D063A6700FB52E5 /* Message+CoreDataProperties.m in Sources */,
 				BD0AC1271D00770100E3E928 /* main.m in Sources */,

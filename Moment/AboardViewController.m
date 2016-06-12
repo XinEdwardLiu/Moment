@@ -8,10 +8,10 @@
 
 #import "AboardViewController.h"
 #import "AppDelegate.h"
-#import "RegisterInfoViewController.h"
+
 
 @interface AboardViewController ()
-@property (strong) IBOutlet RegisterInfoViewController *registerInfoViewController;
+
 @end
 
 @implementation AboardViewController
@@ -19,8 +19,20 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do view setup here.
+    NSLog(@"111");
     [self setViewBackgroundColor];
     self.nameLabel.stringValue=[AppDelegate getStaticUser].name;
+    
+    self.registerInfoViewController=[[RegisterInfoViewController alloc]initWithNibName:@"RegisterInfoView" bundle:nil];
+    NSRect registerFrame=NSMakeRect(179, 47, 846, 468);
+    [self.registerInfoViewController.view setFrame:registerFrame];
+     NSLog(@"222");
+    self.favoriteListViewController=[[FavoriteListViewController alloc]initWithNibName:@"FavoriteListView" bundle:nil];
+     NSLog(@"111");
+    NSRect favoriteFrame=NSMakeRect(179, 47, 846, 468);
+     NSLog(@"111");
+    //[self.favoriteListViewController.view setFrame:favoriteFrame];
+      NSLog(@"111");
 }
 
 -(void)setViewBackgroundColor{
@@ -46,16 +58,25 @@
 
 
 -(IBAction)clickAccountImageBtn:(id)sender{
-    self.registerInfoViewController=[[RegisterInfoViewController alloc]initWithNibName:@"RegisterInfoView" bundle:nil];
-    NSRect registerFrame=NSMakeRect(179, 47, 846, 468);
-    [self.registerInfoViewController.view setFrame:registerFrame];
     
     AppDelegate *appdelegate=[NSApp delegate];
     [appdelegate.mainWindowController.window.contentView addSubview:self.registerInfoViewController.view];
     [appdelegate.mainWindowController hiddenViews];
-
+    [appdelegate.mainWindowController.movieDetailViewController.view setHidden:YES];
+    [self.favoriteListViewController.view setHidden:YES];
+    [self.registerInfoViewController.view setHidden:NO];
+    
 }
 
+-(IBAction)clickFavoriteBtn:(id)sender{
+
+    AppDelegate *appdelegate=[NSApp delegate];
+    [appdelegate.mainWindowController hiddenViews];
+    [appdelegate.mainWindowController.movieDetailViewController.view setHidden:YES];
+    [appdelegate.mainWindowController.window.contentView addSubview:self.favoriteListViewController.view];
+    [self.registerInfoViewController.view setHidden:YES];
+    [self.favoriteListViewController.view setHidden:NO];
+}
 
 
 @end

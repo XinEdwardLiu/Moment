@@ -65,9 +65,34 @@
                         <font key="font" metaFont="system"/>
                         <tabViewItems>
                             <tabViewItem label="Main" identifier="1" id="aEq-w9-Kxw" userLabel="Main">
-                                <view key="view" ambiguous="YES" id="cd2-r6-vYQ">
+                                <view key="view" id="cd2-r6-vYQ">
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
+                                        <scrollView fixedFrame="YES" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" hasVerticalScroller="NO" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gdR-x9-Sqm">
+                                            <rect key="frame" x="0.0" y="-468" width="846" height="468"/>
+                                            <clipView key="contentView" ambiguous="YES" id="chH-5g-XY9">
+                                                <rect key="frame" x="1" y="1" width="844" height="466"/>
+                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                <subviews>
+                                                    <view fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LbA-Hn-9hs">
+                                                        <rect key="frame" x="0.0" y="387" width="166" height="79"/>
+                                                        <animations/>
+                                                    </view>
+                                                </subviews>
+                                                <animations/>
+                                            </clipView>
+                                            <animations/>
+                                            <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="YES" id="pow-ax-apt">
+                                                <rect key="frame" x="-100" y="-100" width="829" height="15"/>
+                                                <autoresizingMask key="autoresizingMask"/>
+                                                <animations/>
+                                            </scroller>
+                                            <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="LO6-IL-YyA">
+                                                <rect key="frame" x="-100" y="-100" width="15" height="466"/>
+                                                <autoresizingMask key="autoresizingMask"/>
+                                                <animations/>
+                                            </scroller>
+                                        </scrollView>
                                         <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nNb-Vt-atL">
                                             <rect key="frame" x="171" y="-163" width="162" height="162"/>
                                             <animations/>
@@ -278,7 +303,7 @@
                                 </view>
                             </tabViewItem>
                             <tabViewItem label="Moive" identifier="2" id="XJA-ij-W4a" userLabel="Movie">
-                                <view key="view" id="lh2-hb-Bto">
+                                <view key="view" ambiguous="YES" id="lh2-hb-Bto">
                                     <rect key="frame" x="0.0" y="0.0" width="846" height="468"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>

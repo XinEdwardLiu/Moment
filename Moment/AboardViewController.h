@@ -7,6 +7,8 @@
 //
 
 #import <Cocoa/Cocoa.h>
+#import "RegisterInfoViewController.h"
+#import "FavoriteListViewController.h"
 
 @interface AboardViewController : NSViewController
 @property IBOutlet NSTextField *nameLabel;
@@ -14,4 +16,6 @@
 @property IBOutlet NSButton *historyListBtn;
 @property IBOutlet NSButton *quitBtn;
 
+@property (strong) IBOutlet RegisterInfoViewController *registerInfoViewController;
+@property (strong) IBOutlet FavoriteListViewController *favoriteListViewController;
 @end

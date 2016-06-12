@@ -8,7 +8,7 @@
 
 #import <Cocoa/Cocoa.h>
 
-@interface MovieDetailViewController : NSViewController<NSTableViewDelegate,NSTableViewDataSource>
+@interface MovieDetailViewController : NSViewController
 
 @property float score;
 
@@ -35,6 +35,6 @@
 
 
 @property IBOutlet NSButton *addToFavoriteBtn;
-
+@property IBOutlet NSButton *giveScoreBtn;
 
 @end

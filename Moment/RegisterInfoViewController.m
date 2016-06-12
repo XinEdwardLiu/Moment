@@ -34,8 +34,6 @@
     }
 }
 
-
-
 -(IBAction)clickSubmitBtn:(id)sender
 {
     if ([self.accountTextField.stringValue isEqualToString:@""]&[self.passwordTextField.stringValue isEqualToString:@""]) {

@@ -27,6 +27,9 @@
                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                         <font key="font" metaFont="system"/>
                     </buttonCell>
+                    <connections>
+                        <action selector="clickFavoriteBtn:" target="-2" id="xAp-FA-ekR"/>
+                    </connections>
                 </button>
                 <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="V2u-eU-M4I">
                     <rect key="frame" x="38" y="247" width="102" height="44"/>

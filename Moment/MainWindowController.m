@@ -19,16 +19,14 @@
     [super windowDidLoad];
     [self hiddenTitleBar];
     [self setWindowBackgroundColor];
-
     
     if ([AppDelegate getStaticAccountState]==NO)
     {
         [self loadRegisterView];
     }
     else if([AppDelegate getStaticAccountState]==YES)
-    {   
+    {
         [self loadAboardView];
-        
     }
     
     self.mainView=[self.mainTab tabViewItemAtIndex:0].view;
@@ -91,6 +89,13 @@
     [self.mainView setFrame:showFrame];
     [self.movieView setHidden:YES];
     [self.musicView setHidden:YES];
+    
+    
+    [self.movieDetailViewController.view setHidden:YES];
+    [self.registerViewController.registerInfoViewController.view setHidden:YES];
+    [self.aboardViewController.registerInfoViewController.view setHidden:YES];
+    [self.aboardViewController.favoriteListViewController.view setHidden:YES];
+    
     [self.window.contentView addSubview:self.mainView];
 }
 
@@ -105,6 +110,11 @@
     [self.movieView setHidden:NO];
     [self.musicView setHidden:YES];
     [self.window.contentView addSubview:self.movieView];
+    
+    [self.movieDetailViewController.view setHidden:YES];
+    [self.registerViewController.registerInfoViewController.view setHidden:YES];
+    [self.aboardViewController.registerInfoViewController.view setHidden:YES];
+    [self.aboardViewController.favoriteListViewController.view setHidden:YES];
 }
 
 -(IBAction)clickMusicBtn:(id)sender{
@@ -118,6 +128,11 @@
     [self.movieView setHidden:YES];
     [self.musicView setHidden:NO];
     [self.window.contentView addSubview:self.musicView];
+    
+    [self.movieDetailViewController.view setHidden:YES];
+    [self.registerViewController.registerInfoViewController.view setHidden:YES];
+    [self.aboardViewController.registerInfoViewController.view setHidden:YES];
+    [self.aboardViewController.favoriteListViewController.view setHidden:YES];
 }
 
 -(IBAction)clickMovieTableView:(id)sender{
@@ -136,10 +151,9 @@
 
     [AppDelegate setStaticMovie:results[row]];
     [self.mainView setHidden:YES];
+    [self.aboardViewController.favoriteListViewController.view setHidden:YES];
     [self loadMovieDetailView];
-    
- 
-    
+    [self.movieDetailViewController.view setHidden:NO];
 }
 
 

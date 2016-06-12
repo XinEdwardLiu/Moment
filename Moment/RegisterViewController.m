@@ -36,6 +36,7 @@
     AppDelegate *appdelegate=[NSApp delegate];
     [appdelegate.mainWindowController.window.contentView addSubview:self.registerInfoViewController.view];
     [appdelegate.mainWindowController hiddenViews];
+    [appdelegate.mainWindowController.movieDetailViewController.view setHidden:YES];
 }
 
 

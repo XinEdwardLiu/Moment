@@ -17,12 +17,47 @@
 
 @implementation AppDelegate
 
+-(void)loadMovieCoreData{
+    NSManagedObjectContext *moc=self.managedObjectContext;
+    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Movie"];
+    
+    NSError *error = nil;
+    NSArray *results = [moc executeFetchRequest:request error:&error];
+    if (!results) {
+        NSLog(@"Error fetching User objects: %@\n%@", [error localizedDescription], [error userInfo]);
+        abort();
+    }
+    if ([results count]==0) {
+        [self initMovie];
+    }
+}
+
 
 -(void)initMovie{
     NSManagedObject *firstComment=[[NSManagedObject alloc]initWithEntity:[NSEntityDescription entityForName:@"Message" inManagedObjectContext:self.managedObjectContext] insertIntoManagedObjectContext:self.managedObjectContext];
     [firstComment setValue:@"楼主" forKey:@"sender"];
     [firstComment setValue:@"沙发" forKey:@"message"];
     [firstComment setValue:[NSDate date] forKey:@"time"];
+  
+    NSManagedObject *secondComment=[[NSManagedObject alloc]initWithEntity:[NSEntityDescription entityForName:@"Message" inManagedObjectContext:self.managedObjectContext] insertIntoManagedObjectContext:self.managedObjectContext];
+    [secondComment setValue:@"楼主" forKey:@"sender"];
+    [secondComment setValue:@"沙发" forKey:@"message"];
+    [secondComment setValue:[NSDate date] forKey:@"time"];
+    
+    NSManagedObject *thirdComment=[[NSManagedObject alloc]initWithEntity:[NSEntityDescription entityForName:@"Message" inManagedObjectContext:self.managedObjectContext] insertIntoManagedObjectContext:self.managedObjectContext];
+    [thirdComment setValue:@"楼主" forKey:@"sender"];
+    [thirdComment setValue:@"沙发" forKey:@"message"];
+    [thirdComment setValue:[NSDate date] forKey:@"time"];
+    
+    NSManagedObject *fourthComment=[[NSManagedObject alloc]initWithEntity:[NSEntityDescription entityForName:@"Message" inManagedObjectContext:self.managedObjectContext] insertIntoManagedObjectContext:self.managedObjectContext];
+    [fourthComment setValue:@"楼主" forKey:@"sender"];
+    [fourthComment setValue:@"沙发" forKey:@"message"];
+    [fourthComment setValue:[NSDate date] forKey:@"time"];
+    
+    NSManagedObject *fifthComment=[[NSManagedObject alloc]initWithEntity:[NSEntityDescription entityForName:@"Message" inManagedObjectContext:self.managedObjectContext] insertIntoManagedObjectContext:self.managedObjectContext];
+    [fifthComment setValue:@"楼主" forKey:@"sender"];
+    [fifthComment setValue:@"沙发" forKey:@"message"];
+    [fifthComment setValue:[NSDate date] forKey:@"time"];
     
     NSImage *firstImage=[NSImage imageNamed:@"澳门风云"];
     NSData *firstImageData=[firstImage TIFFRepresentation];
@@ -35,10 +70,9 @@
     [firstMovie setValue:@"Great Movie" forKey:@"introduction"];
     [firstMovie setValue:@"2hours" forKey:@"time"];
     [firstMovie setValue:firstImageData forKey:@"image"];
-    //[firstMovie setValue:firstComment forKey:@"comments"];
-    NSMutableSet *firstComments = [firstMovie mutableSetValueForKey:@"comments"];
-    [firstComments addObject:firstComment];
-    
+    [firstMovie setValue:[NSSet setWithObject:firstComment] forKey:@"comments"];
+    //[firstComment setValue:firstMovie forKey:@"movieComment"];
+   
     NSManagedObject *secondMovie=[[NSManagedObject alloc]initWithEntity:[NSEntityDescription entityForName:@"Movie" inManagedObjectContext:self.managedObjectContext] insertIntoManagedObjectContext:self.managedObjectContext];
     [secondMovie setValue:@"精武门" forKey:@"name"];
     [secondMovie setValue:@"功夫" forKey:@"type"];
@@ -47,11 +81,9 @@
     [secondMovie setValue:@"Classic Kongfu Movie" forKey:@"introduction"];
     [secondMovie setValue:@"2hours" forKey:@"time"];
     [secondMovie setValue:firstImageData forKey:@"image"];
-    //[secondMovie setValue:firstComment forKey:@"comments"];
-    NSMutableSet *secondComments = [secondMovie mutableSetValueForKey:@"comments"];
-    [secondComments addObject:firstComment];
+    [secondMovie setValue:[NSSet setWithObject:secondComment] forKey:@"comments"];
+    //[secondComment setValue:secondMovie forKey:@"movieComment"];
 
-    
     NSManagedObject *thirdMovie=[[NSManagedObject alloc]initWithEntity:[NSEntityDescription entityForName:@"Movie" inManagedObjectContext:self.managedObjectContext] insertIntoManagedObjectContext:self.managedObjectContext];
     [thirdMovie setValue:@"敢死队" forKey:@"name"];
     [thirdMovie setValue:@"欧美" forKey:@"type"];
@@ -60,9 +92,8 @@
     [thirdMovie setValue:@"Wounderful Movie" forKey:@"introduction"];
     [thirdMovie setValue:@"2.5hours" forKey:@"time"];
     [thirdMovie setValue:firstImageData forKey:@"image"];
-    //[thirdMovie setValue:firstComment forKey:@"comments"];
-    NSMutableSet *thirdComments = [thirdMovie mutableSetValueForKey:@"comments"];
-    [thirdComments addObject:firstComment];
+    [thirdMovie setValue:[NSSet setWithObject:thirdComment] forKey:@"comments"];
+    //[thirdComment setValue:thirdMovie forKey:@"movieComment"];
     
     NSManagedObject *fourthMovie=[[NSManagedObject alloc]initWithEntity:[NSEntityDescription entityForName:@"Movie" inManagedObjectContext:self.managedObjectContext] insertIntoManagedObjectContext:self.managedObjectContext];
     [fourthMovie setValue:@"野蛮女友" forKey:@"name"];
@@ -72,9 +103,8 @@
     [fourthMovie setValue:@"Great Movie about Love" forKey:@"introduction"];
     [fourthMovie setValue:@"2hours" forKey:@"time"];
     [fourthMovie setValue:firstImageData forKey:@"image"];
-    //[firstMovie setValue:firstComment forKey:@"comments"];
-    NSMutableSet *fourthComments = [fourthMovie mutableSetValueForKey:@"comments"];
-    [fourthComments addObject:firstComment];
+    [fourthMovie setValue:[NSSet setWithObject:fourthComment] forKey:@"comments"];
+    //[fourthComment setValue:fourthMovie forKey:@"movieComment"];
     
     NSManagedObject *fifthMovie=[[NSManagedObject alloc]initWithEntity:[NSEntityDescription entityForName:@"Movie" inManagedObjectContext:self.managedObjectContext] insertIntoManagedObjectContext:self.managedObjectContext];
     [fifthMovie setValue:@"电锯惊魂" forKey:@"name"];
@@ -84,17 +114,11 @@
     [fifthMovie setValue:@"Horrible Movie" forKey:@"introduction"];
     [fifthMovie setValue:@"2hours" forKey:@"time"];
     [fifthMovie setValue:firstImageData forKey:@"image"];
-
-    NSMutableSet *fifthComments = [fifthMovie mutableSetValueForKey:@"comments"];
-    [fifthComments addObject:firstComment];
+    [fifthMovie setValue:[NSSet setWithObject:fifthComment] forKey:@"comments"];
+    //[fifthComment setValue:fifthMovie forKey:@"movieComment"];
     
-    NSError *error=nil;
-    [firstComment.managedObjectContext save:&error];
-    [firstMovie.managedObjectContext save:&error];
-    [secondMovie.managedObjectContext save:&error];
-    [thirdMovie.managedObjectContext save:&error];
-    [fourthMovie.managedObjectContext save:&error];
-    [fifthMovie.managedObjectContext save:&error];
+    
+    [self.managedObjectContext save:nil];
 }
 
 -(void)loadUserCoreData{
@@ -113,16 +137,17 @@
 }
 
 -(void)initUser{
-    User *user1=[[User alloc]initWithEntity:[NSEntityDescription entityForName:@"User" inManagedObjectContext:self.managedObjectContext] insertIntoManagedObjectContext:self.managedObjectContext];
-    user1.name=@"edward";
-    user1.age=[NSNumber numberWithInt:18];
-    user1.sex=@"男";
-    user1.password=@"1234";
-    user1.phoneNumber=[NSNumber numberWithLong:18676666592];
-    user1.email=@"xinedwardliu@gmail.com";
-    user1.introduction=@"nice";
+    NSManagedObject *user1=[[NSManagedObject alloc]initWithEntity:[NSEntityDescription entityForName:@"User" inManagedObjectContext:self.managedObjectContext] insertIntoManagedObjectContext:self.managedObjectContext];
+    [user1 setValue:@"Edward" forKey:@"name"];
+    [user1 setValue:[NSNumber numberWithInt:18] forKey:@"age"];
+    [user1 setValue:@"男" forKey:@"sex"];
+    [user1 setValue:@"1234" forKey:@"password"];
+    [user1 setValue:[NSNumber numberWithLong:18676666592] forKey:@"phoneNumber"];
+    [user1 setValue:@"xinedwardliu@gmail.com" forKey:@"email"];
+    [user1 setValue:@"nice" forKey:@"introduction"];
+    
     NSError *error=nil;
-    [self.managedObjectContext save:&error];
+    [user1.managedObjectContext save:&error];
 }
 
 
@@ -151,12 +176,11 @@
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
     // Insert code here to initialize your application
-    [self initMovie];
-    [self readingTemperUser];
+    [self loadMovieCoreData];
     [self loadUserCoreData];
+    [self readingTemperUser];
     self.mainWindowController=[[MainWindowController alloc]initWithWindowNibName:@"MainWindow"];
-    
-    }
+}
 
 - (void)applicationWillTerminate:(NSNotification *)aNotification {
     // Insert code here to tear down your application

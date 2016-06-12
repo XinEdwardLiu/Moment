@@ -11,6 +11,7 @@
                 <outlet property="addToFavoriteBtn" destination="0yE-su-gvW" id="qFW-Xo-bFa"/>
                 <outlet property="fiveStarBtn" destination="x9R-XF-n33" id="Otu-ck-iDv"/>
                 <outlet property="fourStarBtn" destination="fUe-Ph-qnW" id="PBl-KY-N7I"/>
+                <outlet property="giveScoreBtn" destination="nUP-J8-m8t" id="biP-AV-d2R"/>
                 <outlet property="imageView" destination="s1J-vG-Oel" id="uAQ-Sn-44g"/>
                 <outlet property="introductionLabel" destination="peA-fT-3BY" id="jWA-Ge-RhE"/>
                 <outlet property="messageTableView" destination="ZV7-L7-Wnx" id="mCe-Qs-XqL"/>
@@ -65,6 +66,9 @@
                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                         <font key="font" metaFont="system"/>
                     </buttonCell>
+                    <connections>
+                        <action selector="clickAddToFavoriteBtn:" target="-2" id="Rxz-aH-RqX"/>
+                    </connections>
                 </button>
                 <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="s1J-vG-Oel">
                     <rect key="frame" x="20" y="229" width="332" height="219"/>
@@ -133,6 +137,7 @@
                                 <animations/>
                                 <size key="intercellSpacing" width="3" height="5"/>
                                 <color key="backgroundColor" name="controlHighlightColor" catalog="System" colorSpace="catalog"/>
+                                <tableViewGridLines key="gridStyleMask" vertical="YES"/>
                                 <color key="gridColor" name="gridColor" catalog="System" colorSpace="catalog"/>
                                 <tableColumns>
                                     <tableColumn identifier="sender" width="154" minWidth="40" maxWidth="1000" id="e9x-B4-K5G">
@@ -160,7 +165,7 @@
                                             </textField>
                                         </prototypeCellViews>
                                     </tableColumn>
-                                    <tableColumn identifier="comment" width="295" minWidth="10" maxWidth="3.4028234663852886e+38" id="a3R-P2-j3f">
+                                    <tableColumn identifier="message" width="295" minWidth="10" maxWidth="3.4028234663852886e+38" id="a3R-P2-j3f">
                                         <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left">
                                             <font key="font" metaFont="smallSystem"/>
                                             <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
@@ -212,8 +217,8 @@
                                     </tableColumn>
                                 </tableColumns>
                                 <connections>
-                                    <outlet property="dataSource" destination="-2" id="Gcc-tV-G7q"/>
-                                    <outlet property="delegate" destination="-2" id="4Wn-Ua-Uc7"/>
+                                    <outlet property="dataSource" destination="rzw-Eg-3zV" id="co0-a3-hbO"/>
+                                    <outlet property="delegate" destination="rzw-Eg-3zV" id="V8m-W7-9Dn"/>
                                 </connections>
                             </tableView>
                         </subviews>
@@ -312,6 +317,9 @@
                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                         <font key="font" metaFont="system"/>
                     </buttonCell>
+                    <connections>
+                        <action selector="clickSubmitMessageBtn:" target="-2" id="mud-Ul-PqE"/>
+                    </connections>
                 </button>
                 <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nUP-J8-m8t">
                     <rect key="frame" x="228" y="172" width="51" height="35"/>
@@ -320,11 +328,15 @@
                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                         <font key="font" metaFont="system"/>
                     </buttonCell>
+                    <connections>
+                        <action selector="clickSaveScoreBtn:" target="-2" id="pHP-wQ-7gg"/>
+                    </connections>
                 </button>
             </subviews>
             <animations/>
             <point key="canvasLocation" x="404" y="395"/>
         </customView>
+        <customObject id="rzw-Eg-3zV" customClass="MovieDetailCommentTableController"/>
     </objects>
     <resources>
         <image name="1star" width="30.719999313354492" height="29.280000686645508"/>
