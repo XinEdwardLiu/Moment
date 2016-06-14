@@ -16,9 +16,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    NSRect favoriteFrame=NSMakeRect(178.8, 47.5, 846, 468);
-    [self.view setFrame:favoriteFrame];
-    
     // Do view setup here.
     AppDelegate *appdelegate=[NSApp delegate];
     NSManagedObjectContext *moc=appdelegate.managedObjectContext;
@@ -50,8 +47,6 @@
     }
     if ([tableColumn.identifier isEqualTo:@"delete"]) {
         NSButton *deleteBtn=[tableView makeViewWithIdentifier:@"delete" owner:self];
-        //  [deleteBtn setAction:@selector(action:)];
-        // [deleteBtn setIdentifier: [NSString stringWithFormat:@"%ld",(long)row]];
         return deleteBtn;
     }
     if ([tableColumn.identifier isEqualTo:@"type"]) {
@@ -73,23 +68,25 @@
 }
 
 -(IBAction)clickDeleteBtn:(id)sender{
-    NSInteger selected = [self.movieFavoriteListTableView rowForView:sender];
-    [self.favoriteMovieMutableArray removeObjectAtIndex:selected];
-    [self.movieFavoriteListTableView reloadData];
+    NSInteger selectedRow = [self.movieFavoriteListTableView rowForView:sender];
     
     AppDelegate *appdelegate=[NSApp delegate];
     NSManagedObjectContext *moc=appdelegate.managedObjectContext;
     NSFetchRequest *request=[[NSFetchRequest alloc]initWithEntityName:@"User"];
-    [request setPredicate:[NSPredicate predicateWithFormat:@"name==%@",[AppDelegate getStaticUser].name]];
+    [request setPredicate:[NSPredicate predicateWithFormat:@"name==%@",appdelegate.mainWindowController.aboardViewController.nameLabel.stringValue]];
     NSError *error=nil;
     NSArray *results=[moc executeFetchRequest:request error:&error];
     if (!request) {
         NSLog(@"Error fetching User objects:%@\n%@",[error localizedDescription],[error userInfo]);
     }
     NSMutableSet *set=[results[0] mutableSetValueForKey:@"favoriteMovie"];
-    [set removeObject:[AppDelegate getStaticMovie]];
+    [set removeObject:self.favoriteMovieMutableArray[selectedRow]];
     [results[0] setValue:set forKey:@"favoriteMovie"];
     [appdelegate.managedObjectContext save:nil];
+    
+    [self.favoriteMovieMutableArray removeObjectAtIndex:selectedRow];
+    [self.movieFavoriteListTableView reloadData];
+
 }
 
 

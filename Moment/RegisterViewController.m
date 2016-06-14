@@ -62,14 +62,14 @@
             [self.view setHidden:YES];
             [appdelegate.mainWindowController loadAboardView];
             //本地存储当前用户
-            NSUserDefaults *userDefualts=[NSUserDefaults standardUserDefaults];
-            [userDefualts setObject:temperUser.name  forKey:@"Name"];
-            [userDefualts setObject:temperUser.age  forKey:@"Age"];
-            [userDefualts setObject:temperUser.sex  forKey:@"Sex"];
-            [userDefualts setObject:temperUser.password  forKey:@"Password"];
-            [userDefualts setObject:temperUser.phoneNumber  forKey:@"PhoneNumber"];
-            [userDefualts setObject:temperUser.email  forKey:@"Email"];
-            [userDefualts setObject:temperUser.introduction  forKey:@"Introduction"];
+           // NSUserDefaults *userDefualts=[NSUserDefaults standardUserDefaults];
+           // [userDefualts setObject:temperUser.name  forKey:@"Name"];
+           // [userDefualts setObject:temperUser.age  forKey:@"Age"];
+           // [userDefualts setObject:temperUser.sex  forKey:@"Sex"];
+           // [userDefualts setObject:temperUser.password  forKey:@"Password"];
+           // [userDefualts setObject:temperUser.phoneNumber  forKey:@"PhoneNumber"];
+           // [userDefualts setObject:temperUser.email  forKey:@"Email"];
+           // [userDefualts setObject:temperUser.introduction  forKey:@"Introduction"];
         }
         else{
             self.attentionLabel.stringValue=@"Invalid Input!";

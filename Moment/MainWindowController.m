@@ -20,14 +20,15 @@
     [self hiddenTitleBar];
     [self setWindowBackgroundColor];
     
-    if ([AppDelegate getStaticAccountState]==NO)
-    {
-        [self loadRegisterView];
-    }
-    else if([AppDelegate getStaticAccountState]==YES)
-    {
-        [self loadAboardView];
-    }
+    [self loadRegisterView];
+  //  if ([AppDelegate getStaticAccountState]==NO)
+  //  {
+  //      [self loadRegisterView];
+  //  }
+  //  else if([AppDelegate getStaticAccountState]==YES)
+  //  {
+  //      [self loadAboardView];
+  //  }
     
     self.mainView=[self.mainTab tabViewItemAtIndex:0].view;
     self.movieView=[self.mainTab tabViewItemAtIndex:1].view;
@@ -70,7 +71,13 @@
     [self.window.contentView addSubview:self.movieDetailViewController.view];
     NSRect detailFrame=NSMakeRect(179, 47, 846, 468);
     [self.movieDetailViewController.view setFrame:detailFrame];
+}
 
+-(void)loadMusicDetailView{
+    self.musicDetailViewController=[[MusicDetailViewController alloc]initWithNibName:@"MusicDetailView" bundle:nil];
+    [self.window.contentView addSubview:self.musicDetailViewController.view];
+    NSRect detailFrame=NSMakeRect(179, 47, 846, 468);
+    [self.musicDetailViewController.view setFrame:detailFrame];
 }
 
 -(void)hiddenViews{
@@ -92,11 +99,14 @@
     
     
     [self.movieDetailViewController.view setHidden:YES];
+    [self.musicDetailViewController.view setHidden:YES];
     [self.registerViewController.registerInfoViewController.view setHidden:YES];
     [self.aboardViewController.registerInfoViewController.view setHidden:YES];
     [self.aboardViewController.favoriteListViewController.view setHidden:YES];
     
     [self.window.contentView addSubview:self.mainView];
+    [self.mainMovieTableView reloadData];
+    [self.mainMusicTableView reloadData];
 }
 
 -(IBAction)clickMovieBtn:(id)sender{
@@ -104,6 +114,8 @@
     [self.mainBtn setImage:[NSImage imageNamed:@"Main"]];
     [self.musicBtn setImage:[NSImage imageNamed:@"Music"]];
     
+    [self.movieRankTableView reloadData];
+    [self.movieAllTableView reloadData];
     NSRect showFrame=NSMakeRect(179, 47, 846, 468);
     [self.movieView setFrame:showFrame];
     [self.mainView setHidden:YES];
@@ -112,6 +124,7 @@
     [self.window.contentView addSubview:self.movieView];
     
     [self.movieDetailViewController.view setHidden:YES];
+    [self.musicDetailViewController.view setHidden:YES];
     [self.registerViewController.registerInfoViewController.view setHidden:YES];
     [self.aboardViewController.registerInfoViewController.view setHidden:YES];
     [self.aboardViewController.favoriteListViewController.view setHidden:YES];
@@ -122,6 +135,8 @@
     [self.mainBtn setImage:[NSImage imageNamed:@"Main"]];
     [self.movieBtn setImage:[NSImage imageNamed:@"Movie"]];
     
+    [self.musicRankTableView reloadData];
+    [self.musicAllTableView reloadData];
     NSRect showFrame=NSMakeRect(179, 47, 846, 468);
     [self.musicView setFrame:showFrame];
     [self.mainView setHidden:YES];
@@ -130,6 +145,7 @@
     [self.window.contentView addSubview:self.musicView];
     
     [self.movieDetailViewController.view setHidden:YES];
+    [self.musicDetailViewController.view setHidden:YES];
     [self.registerViewController.registerInfoViewController.view setHidden:YES];
     [self.aboardViewController.registerInfoViewController.view setHidden:YES];
     [self.aboardViewController.favoriteListViewController.view setHidden:YES];
@@ -145,15 +161,114 @@
     NSError *error = nil;
     NSArray *results = [moc executeFetchRequest:request error:&error];
     if (!results) {
-        NSLog(@"Error fetching User objects: %@\n%@", [error localizedDescription], [error userInfo]);
+        NSLog(@"Error fetching Movie objects: %@\n%@", [error localizedDescription], [error userInfo]);
         abort();
     }
-
     [AppDelegate setStaticMovie:results[row]];
-    [self.mainView setHidden:YES];
+    [self hiddenViews];
     [self.aboardViewController.favoriteListViewController.view setHidden:YES];
     [self loadMovieDetailView];
     [self.movieDetailViewController.view setHidden:NO];
+}
+
+-(IBAction)clickMovieAllTableView:(id)sender{
+    AppDelegate *appdelegate=[NSApp delegate];
+    NSInteger row=self.movieAllTableView.selectedRow;
+    
+    NSManagedObjectContext *moc=appdelegate.managedObjectContext;
+    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Movie"];
+    
+    NSError *error = nil;
+    NSArray *results = [moc executeFetchRequest:request error:&error];
+    if (!results) {
+        NSLog(@"Error fetching Movie objects: %@\n%@", [error localizedDescription], [error userInfo]);
+        abort();
+    }
+    [AppDelegate setStaticMovie:results[row]];
+    [self hiddenViews];
+    [self.aboardViewController.favoriteListViewController.view setHidden:YES];
+    [self loadMovieDetailView];
+    [self.movieDetailViewController.view setHidden:NO];
+}
+
+-(IBAction)clickMovieRankTableView:(id)sender{
+    AppDelegate *appdelegate=[NSApp delegate];
+    NSInteger row=self.movieRankTableView.selectedRow;
+    
+    NSManagedObjectContext *moc=appdelegate.managedObjectContext;
+    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Movie"];
+    NSSortDescriptor *sort=[[NSSortDescriptor alloc]initWithKey:@"score" ascending:NO];
+    [request setSortDescriptors:@[sort]];
+    NSError *error = nil;
+    NSArray *results = [moc executeFetchRequest:request error:&error];
+    if (!results) {
+        NSLog(@"Error fetching Movie objects: %@\n%@", [error localizedDescription], [error userInfo]);
+        abort();
+    }
+    [AppDelegate setStaticMovie:results[row]];
+    [self hiddenViews];
+    [self.aboardViewController.favoriteListViewController.view setHidden:YES];
+    [self loadMovieDetailView];
+    [self.movieDetailViewController.view setHidden:NO];
+
+}
+
+-(IBAction)clickMusicTableView:(id)sender{
+    AppDelegate *appdelegate=[NSApp delegate];
+    NSInteger row=self.mainMusicTableView.selectedRow;
+    
+    NSManagedObjectContext *moc=appdelegate.managedObjectContext;
+    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Music"];
+    
+    NSError *error = nil;
+    NSArray *results = [moc executeFetchRequest:request error:&error];
+    if (!results) {
+        NSLog(@"Error fetching Music objects: %@\n%@", [error localizedDescription], [error userInfo]);
+        abort();
+    }
+    [AppDelegate setStaticMusic:results[row]];
+    [self hiddenViews];
+    [self.aboardViewController.favoriteListViewController.view setHidden:YES];
+    [self loadMusicDetailView];
+}
+
+-(IBAction)clickMusicAllTableView:(id)sender{
+    AppDelegate *appdelegate=[NSApp delegate];
+    NSInteger row=self.musicAllTableView.selectedRow;
+    
+    NSManagedObjectContext *moc=appdelegate.managedObjectContext;
+    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Music"];
+    
+    NSError *error = nil;
+    NSArray *results = [moc executeFetchRequest:request error:&error];
+    if (!results) {
+        NSLog(@"Error fetching Music objects: %@\n%@", [error localizedDescription], [error userInfo]);
+        abort();
+    }
+    [AppDelegate setStaticMusic:results[row]];
+    [self hiddenViews];
+    [self.aboardViewController.favoriteListViewController.view setHidden:YES];
+    [self loadMusicDetailView];
+}
+
+-(IBAction)clickMusicRankTableView:(id)sender{
+    AppDelegate *appdelegate=[NSApp delegate];
+    NSInteger row=self.musicRankTableView.selectedRow;
+    
+    NSManagedObjectContext *moc=appdelegate.managedObjectContext;
+    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Music"];
+    NSSortDescriptor *sort=[[NSSortDescriptor alloc]initWithKey:@"score" ascending:NO];
+    [request setSortDescriptors:@[sort]];
+    NSError *error = nil;
+    NSArray *results = [moc executeFetchRequest:request error:&error];
+    if (!results) {
+        NSLog(@"Error fetching Music objects: %@\n%@", [error localizedDescription], [error userInfo]);
+        abort();
+    }
+    [AppDelegate setStaticMusic:results[row]];
+    [self hiddenViews];
+    [self.aboardViewController.favoriteListViewController.view setHidden:YES];
+    [self loadMusicDetailView];
 }
 
 

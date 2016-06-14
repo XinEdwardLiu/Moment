@@ -11,10 +11,12 @@
 #import "User.h"
 #import "Movie.h"
 #import "Message.h"
+#import "Music.h"
 
 static User *staticUser;
 static BOOL staticAccountState;
 static Movie *staticMovie;
+static Music *staticMusic;
 
 @interface AppDelegate : NSObject <NSApplicationDelegate>
 
@@ -32,6 +34,9 @@ static Movie *staticMovie;
 
 +(Movie *)getStaticMovie;
 +(Movie *)setStaticMovie:(Movie *)newMovie;
+
++(Music *)getStaticMusic;
++(Music *)setStaticMusic:(Music *)newMusic;
 
 @end
 

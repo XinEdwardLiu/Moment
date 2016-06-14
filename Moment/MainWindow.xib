@@ -9,9 +9,14 @@
             <connections>
                 <outlet property="mainBtn" destination="DeX-Oe-DiK" id="qbD-lJ-pm2"/>
                 <outlet property="mainMovieTableView" destination="dLZ-iG-EY9" id="onU-pK-xtQ"/>
+                <outlet property="mainMusicTableView" destination="hwD-ab-dlt" id="eg0-m7-J4h"/>
                 <outlet property="mainTab" destination="bk2-JI-VrE" id="GUc-lJ-nns"/>
+                <outlet property="movieAllTableView" destination="FA7-pl-bDi" id="l3f-98-tRR"/>
                 <outlet property="movieBtn" destination="VuT-XA-w3F" id="ezF-14-XJp"/>
+                <outlet property="movieRankTableView" destination="3Ct-Ug-n48" id="RpP-TT-bhi"/>
+                <outlet property="musicAllTableView" destination="Au9-bE-xGs" id="KRd-Ag-QYl"/>
                 <outlet property="musicBtn" destination="K8v-2a-Cn7" id="Nb3-wG-34I"/>
+                <outlet property="musicRankTableView" destination="XUx-1w-m3Y" id="w2U-NB-1f5"/>
                 <outlet property="window" destination="F0z-JX-Cv5" id="gIp-Ho-8D9"/>
             </connections>
         </customObject>
@@ -66,10 +71,11 @@
                         <tabViewItems>
                             <tabViewItem label="Main" identifier="1" id="aEq-w9-Kxw" userLabel="Main">
                                 <view key="view" id="cd2-r6-vYQ">
+                                    <rect key="frame" x="0.0" y="0.0" width="846" height="468"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <scrollView fixedFrame="YES" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" hasVerticalScroller="NO" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gdR-x9-Sqm">
-                                            <rect key="frame" x="0.0" y="-468" width="846" height="468"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="846" height="468"/>
                                             <clipView key="contentView" ambiguous="YES" id="chH-5g-XY9">
                                                 <rect key="frame" x="1" y="1" width="844" height="466"/>
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -94,7 +100,7 @@
                                             </scroller>
                                         </scrollView>
                                         <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nNb-Vt-atL">
-                                            <rect key="frame" x="171" y="-163" width="162" height="162"/>
+                                            <rect key="frame" x="171" y="305" width="162" height="162"/>
                                             <animations/>
                                             <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="澳门风云" imagePosition="only" alignment="center" imageScaling="proportionallyUpOrDown" inset="2" id="2Pz-P3-Yiw">
                                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -102,7 +108,7 @@
                                             </buttonCell>
                                         </button>
                                         <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pb4-3P-NA1">
-                                            <rect key="frame" x="528" y="-160" width="162" height="162"/>
+                                            <rect key="frame" x="528" y="308" width="162" height="162"/>
                                             <animations/>
                                             <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="Let it go" imagePosition="only" alignment="center" imageScaling="proportionallyUpOrDown" inset="2" id="bpv-9f-wFX">
                                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -110,7 +116,7 @@
                                             </buttonCell>
                                         </button>
                                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0VD-K8-mNE">
-                                            <rect key="frame" x="423" y="-161" width="88" height="19"/>
+                                            <rect key="frame" x="423" y="307" width="88" height="19"/>
                                             <animations/>
                                             <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="justified" title="音乐风云榜：" id="aAF-N4-h6M">
                                                 <font key="font" size="15" name="STHeitiSC-Medium"/>
@@ -119,7 +125,7 @@
                                             </textFieldCell>
                                         </textField>
                                         <scrollView fixedFrame="YES" borderType="none" horizontalLineScroll="30" horizontalPageScroll="10" verticalLineScroll="30" verticalPageScroll="10" hasHorizontalScroller="NO" hasVerticalScroller="NO" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RXh-UY-d09">
-                                            <rect key="frame" x="423" y="-468" width="423" height="303"/>
+                                            <rect key="frame" x="423" y="0.0" width="423" height="303"/>
                                             <clipView key="contentView" ambiguous="YES" drawsBackground="NO" copiesOnScroll="NO" id="n2S-kG-YHD">
                                                 <rect key="frame" x="0.0" y="0.0" width="423" height="303"/>
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -157,7 +163,7 @@
                                                                     </textField>
                                                                 </prototypeCellViews>
                                                             </tableColumn>
-                                                            <tableColumn identifier="author" width="240" minWidth="10" maxWidth="3.4028234663852886e+38" id="l6z-sR-G6I">
+                                                            <tableColumn identifier="singer" width="240" minWidth="10" maxWidth="3.4028234663852886e+38" id="l6z-sR-G6I">
                                                                 <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left">
                                                                     <font key="font" metaFont="smallSystem"/>
                                                                     <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
@@ -183,6 +189,11 @@
                                                                 </prototypeCellViews>
                                                             </tableColumn>
                                                         </tableColumns>
+                                                        <connections>
+                                                            <action selector="clickMusicTableView:" target="-2" id="QEJ-l0-A6U"/>
+                                                            <outlet property="dataSource" destination="9u0-ea-gMz" id="3t6-gO-uiC"/>
+                                                            <outlet property="delegate" destination="9u0-ea-gMz" id="Cno-V4-yxu"/>
+                                                        </connections>
                                                     </tableView>
                                                 </subviews>
                                                 <animations/>
@@ -202,7 +213,7 @@
                                             </scroller>
                                         </scrollView>
                                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2JV-1l-jcF">
-                                            <rect key="frame" x="0.0" y="-161" width="88" height="22"/>
+                                            <rect key="frame" x="0.0" y="307" width="88" height="22"/>
                                             <animations/>
                                             <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="justified" title="电影风云榜：" id="1FA-NY-dga">
                                                 <font key="font" size="15" name="STHeitiSC-Medium"/>
@@ -211,7 +222,7 @@
                                             </textFieldCell>
                                         </textField>
                                         <scrollView fixedFrame="YES" borderType="none" horizontalLineScroll="30" horizontalPageScroll="10" verticalLineScroll="30" verticalPageScroll="10" hasHorizontalScroller="NO" hasVerticalScroller="NO" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ooc-ug-a1x">
-                                            <rect key="frame" x="0.0" y="-468" width="423" height="303"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="423" height="303"/>
                                             <clipView key="contentView" ambiguous="YES" drawsBackground="NO" copiesOnScroll="NO" id="r4t-pp-1Er">
                                                 <rect key="frame" x="0.0" y="0.0" width="423" height="303"/>
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -303,7 +314,7 @@
                                 </view>
                             </tabViewItem>
                             <tabViewItem label="Moive" identifier="2" id="XJA-ij-W4a" userLabel="Movie">
-                                <view key="view" ambiguous="YES" id="lh2-hb-Bto">
+                                <view key="view" id="lh2-hb-Bto">
                                     <rect key="frame" x="0.0" y="0.0" width="846" height="468"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
@@ -397,7 +408,7 @@
                                                                     </textField>
                                                                 </prototypeCellViews>
                                                             </tableColumn>
-                                                            <tableColumn identifier="author" width="134" minWidth="10" maxWidth="3.4028234663852886e+38" id="2aw-L3-rBx">
+                                                            <tableColumn identifier="actor" width="134" minWidth="10" maxWidth="3.4028234663852886e+38" id="2aw-L3-rBx">
                                                                 <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left">
                                                                     <font key="font" metaFont="smallSystem"/>
                                                                     <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
@@ -423,6 +434,11 @@
                                                                 </prototypeCellViews>
                                                             </tableColumn>
                                                         </tableColumns>
+                                                        <connections>
+                                                            <action selector="clickMovieAllTableView:" target="-2" id="kbO-me-5E8"/>
+                                                            <outlet property="dataSource" destination="J50-i4-ZLu" id="F6j-S8-Mrd"/>
+                                                            <outlet property="delegate" destination="J50-i4-ZLu" id="1tg-tG-7eR"/>
+                                                        </connections>
                                                     </tableView>
                                                 </subviews>
                                                 <animations/>
@@ -480,7 +496,7 @@
                                                                     </textField>
                                                                 </prototypeCellViews>
                                                             </tableColumn>
-                                                            <tableColumn identifier="author" width="130" minWidth="10" maxWidth="3.4028234663852886e+38" id="ahp-sb-OBb">
+                                                            <tableColumn identifier="actor" width="130" minWidth="10" maxWidth="3.4028234663852886e+38" id="ahp-sb-OBb">
                                                                 <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left">
                                                                     <font key="font" metaFont="smallSystem"/>
                                                                     <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
@@ -533,6 +549,11 @@
                                                                 </prototypeCellViews>
                                                             </tableColumn>
                                                         </tableColumns>
+                                                        <connections>
+                                                            <action selector="clickMovieRankTableView:" target="-2" id="Czu-BW-uwz"/>
+                                                            <outlet property="dataSource" destination="FJ2-5L-x1A" id="seS-Vb-l8u"/>
+                                                            <outlet property="delegate" destination="FJ2-5L-x1A" id="QeV-3P-wgO"/>
+                                                        </connections>
                                                     </tableView>
                                                 </subviews>
                                                 <animations/>
@@ -555,7 +576,7 @@
                                 </view>
                             </tabViewItem>
                             <tabViewItem label="Music" identifier="3" id="YON-jk-RDY" userLabel="Music">
-                                <view key="view" id="5yn-BY-6qI">
+                                <view key="view" ambiguous="YES" id="5yn-BY-6qI">
                                     <rect key="frame" x="0.0" y="0.0" width="846" height="468"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
@@ -623,7 +644,7 @@
                                                                     </textField>
                                                                 </prototypeCellViews>
                                                             </tableColumn>
-                                                            <tableColumn identifier="author" width="128" minWidth="10" maxWidth="3.4028234663852886e+38" id="pU7-kD-sCn">
+                                                            <tableColumn identifier="singer" width="128" minWidth="10" maxWidth="3.4028234663852886e+38" id="pU7-kD-sCn">
                                                                 <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left">
                                                                     <font key="font" metaFont="smallSystem"/>
                                                                     <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
@@ -649,6 +670,11 @@
                                                                 </prototypeCellViews>
                                                             </tableColumn>
                                                         </tableColumns>
+                                                        <connections>
+                                                            <action selector="clickMusicAllTableView:" target="-2" id="j0q-we-KW8"/>
+                                                            <outlet property="dataSource" destination="x3h-TZ-JLF" id="VhA-0a-tRd"/>
+                                                            <outlet property="delegate" destination="x3h-TZ-JLF" id="iXx-dF-57e"/>
+                                                        </connections>
                                                     </tableView>
                                                 </subviews>
                                                 <animations/>
@@ -705,7 +731,7 @@
                                                                     </textField>
                                                                 </prototypeCellViews>
                                                             </tableColumn>
-                                                            <tableColumn identifier="author" width="130" minWidth="10" maxWidth="3.4028234663852886e+38" id="7to-if-Uwg">
+                                                            <tableColumn identifier="singer" width="130" minWidth="10" maxWidth="3.4028234663852886e+38" id="7to-if-Uwg">
                                                                 <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left">
                                                                     <font key="font" metaFont="smallSystem"/>
                                                                     <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
@@ -756,6 +782,11 @@
                                                                 </prototypeCellViews>
                                                             </tableColumn>
                                                         </tableColumns>
+                                                        <connections>
+                                                            <action selector="clickMusicRankTableView:" target="-2" id="x6y-2r-Cu2"/>
+                                                            <outlet property="dataSource" destination="Wq9-C8-24c" id="S2s-o1-2eX"/>
+                                                            <outlet property="delegate" destination="Wq9-C8-24c" id="6gN-k0-bGh"/>
+                                                        </connections>
                                                     </tableView>
                                                 </subviews>
                                                 <animations/>
@@ -809,6 +840,11 @@
             </connections>
         </window>
         <customObject id="u5U-xS-KDK" customClass="MainMovieTableController"/>
+        <customObject id="9u0-ea-gMz" customClass="MainMusicTableController"/>
+        <customObject id="J50-i4-ZLu" customClass="MovieAllTableController"/>
+        <customObject id="FJ2-5L-x1A" customClass="MovieRankTableController"/>
+        <customObject id="x3h-TZ-JLF" customClass="MusicAllTableController"/>
+        <customObject id="Wq9-C8-24c" customClass="MusicRankTableController"/>
     </objects>
     <resources>
         <image name="Let it go" width="1205.7366943359375" height="678.2901611328125"/>

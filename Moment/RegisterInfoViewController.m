@@ -125,7 +125,17 @@
     [currentUser setValue:self.selfIntroductionTextField.stringValue forKey:@"introduction"];
     [currentUser setValue:[NSNumber numberWithInteger:self.phoneTextField.integerValue] forKey:@"phoneNumber"];
     [currentUser setValue:self.passwordTextField.stringValue forKey:@"password"];
-    [appdelegate.managedObjectContext save:&error];
+    [currentUser.managedObjectContext save:&error];
+    
+    NSFetchRequest *request1=[NSFetchRequest fetchRequestWithEntityName:@"User"];
+    NSString *name1 = [currentUser valueForKey:@"name"];
+    [request setPredicate:[NSPredicate predicateWithFormat:@"name == %@", name1]];
+    NSArray *results1=[moc executeFetchRequest:request1 error:&error];
+    if (!results1) {
+        NSLog(@"Error fetching Employee objects: %@\n%@", [error localizedDescription], [error userInfo]);
+        abort();
+    }
+    [AppDelegate setStaticUser:results1[0]];
    
     [appdelegate.mainWindowController.registerViewController.view setHidden:YES];
     [self.view setHidden:YES];

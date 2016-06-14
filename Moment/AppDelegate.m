@@ -24,14 +24,13 @@
     NSError *error = nil;
     NSArray *results = [moc executeFetchRequest:request error:&error];
     if (!results) {
-        NSLog(@"Error fetching User objects: %@\n%@", [error localizedDescription], [error userInfo]);
+        NSLog(@"Error fetching Movie objects: %@\n%@", [error localizedDescription], [error userInfo]);
         abort();
     }
     if ([results count]==0) {
         [self initMovie];
     }
 }
-
 
 -(void)initMovie{
     NSManagedObject *firstComment=[[NSManagedObject alloc]initWithEntity:[NSEntityDescription entityForName:@"Message" inManagedObjectContext:self.managedObjectContext] insertIntoManagedObjectContext:self.managedObjectContext];
@@ -121,6 +120,83 @@
     [self.managedObjectContext save:nil];
 }
 
+-(void)loadMusicCoreData{
+    NSManagedObjectContext *moc=self.managedObjectContext;
+    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Music"];
+    
+    NSError *error = nil;
+    NSArray *results = [moc executeFetchRequest:request error:&error];
+    if (!results) {
+        NSLog(@"Error fetching Music objects: %@\n%@", [error localizedDescription], [error userInfo]);
+        abort();
+    }
+    if ([results count]==0) {
+        [self initMusic];
+    }
+}
+
+
+-(void)initMusic{
+    NSManagedObject *firstMusicComment=[[NSManagedObject alloc]initWithEntity:[NSEntityDescription entityForName:@"Message" inManagedObjectContext:self.managedObjectContext] insertIntoManagedObjectContext:self.managedObjectContext];
+    [firstMusicComment setValue:@"楼主" forKey:@"sender"];
+    [firstMusicComment setValue:@"沙发" forKey:@"message"];
+    [firstMusicComment setValue:[NSDate date] forKey:@"time"];
+    
+    NSImage *firstImage=[NSImage imageNamed:@"Let it go"];
+    NSData *firstImageData=[firstImage TIFFRepresentation];
+    
+    NSManagedObject *firstMusic=[[NSManagedObject alloc]initWithEntity:[NSEntityDescription entityForName:@"Music" inManagedObjectContext:self.managedObjectContext] insertIntoManagedObjectContext:self.managedObjectContext];
+    [firstMusic setValue:@"Your raise me up" forKey:@"name"];
+    [firstMusic setValue:@"欧美" forKey:@"type"];
+    [firstMusic setValue:@"未知" forKey:@"singer"];
+    [firstMusic setValue:[NSNumber numberWithFloat:4.8] forKey:@"score"];
+    [firstMusic setValue:@"Great Music" forKey:@"introduction"];
+    [firstMusic setValue:@"2minute" forKey:@"time"];
+    [firstMusic setValue:firstImageData forKey:@"image"];
+    [firstMusic setValue:[NSSet setWithObject:firstMusicComment] forKey:@"comments"];
+   
+    NSManagedObject *secondMusic=[[NSManagedObject alloc]initWithEntity:[NSEntityDescription entityForName:@"Music" inManagedObjectContext:self.managedObjectContext] insertIntoManagedObjectContext:self.managedObjectContext];
+    [secondMusic setValue:@"Let it go" forKey:@"name"];
+    [secondMusic setValue:@"欧美" forKey:@"type"];
+    [secondMusic setValue:@"未知" forKey:@"singer"];
+    [secondMusic setValue:[NSNumber numberWithFloat:5.0] forKey:@"score"];
+    [secondMusic setValue:@"Fantastic Music" forKey:@"introduction"];
+    [secondMusic setValue:@"2minute" forKey:@"time"];
+    [secondMusic setValue:firstImageData forKey:@"image"];
+    [secondMusic setValue:[NSSet setWithObject:firstMusicComment] forKey:@"comments"];
+    
+    NSManagedObject *thirdMusic=[[NSManagedObject alloc]initWithEntity:[NSEntityDescription entityForName:@"Music" inManagedObjectContext:self.managedObjectContext] insertIntoManagedObjectContext:self.managedObjectContext];
+    [thirdMusic setValue:@"爱很简单" forKey:@"name"];
+    [thirdMusic setValue:@"情歌" forKey:@"type"];
+    [thirdMusic setValue:@"陶喆" forKey:@"singer"];
+    [thirdMusic setValue:[NSNumber numberWithFloat:4.5] forKey:@"score"];
+    [thirdMusic setValue:@"经典情歌" forKey:@"introduction"];
+    [thirdMusic setValue:@"2minute" forKey:@"time"];
+    [thirdMusic setValue:firstImageData forKey:@"image"];
+    [thirdMusic setValue:[NSSet setWithObject:firstMusicComment] forKey:@"comments"];
+    
+    NSManagedObject *fourthMusic=[[NSManagedObject alloc]initWithEntity:[NSEntityDescription entityForName:@"Music" inManagedObjectContext:self.managedObjectContext] insertIntoManagedObjectContext:self.managedObjectContext];
+    [fourthMusic setValue:@"爱你一万年" forKey:@"name"];
+    [fourthMusic setValue:@"情歌" forKey:@"type"];
+    [fourthMusic setValue:@"刘德华" forKey:@"singer"];
+    [fourthMusic setValue:[NSNumber numberWithFloat:4.0] forKey:@"score"];
+    [fourthMusic setValue:@"经典情歌" forKey:@"introduction"];
+    [fourthMusic setValue:@"2minute" forKey:@"time"];
+    [fourthMusic setValue:firstImageData forKey:@"image"];
+    [fourthMusic setValue:[NSSet setWithObject:firstMusicComment] forKey:@"comments"];
+    
+    NSManagedObject *fifthMusic=[[NSManagedObject alloc]initWithEntity:[NSEntityDescription entityForName:@"Music" inManagedObjectContext:self.managedObjectContext] insertIntoManagedObjectContext:self.managedObjectContext];
+    [fifthMusic setValue:@"飞得更高" forKey:@"name"];
+    [fifthMusic setValue:@"励志" forKey:@"type"];
+    [fifthMusic setValue:@"赵传" forKey:@"singer"];
+    [fifthMusic setValue:[NSNumber numberWithFloat:5.0] forKey:@"score"];
+    [fifthMusic setValue:@"经典励志歌曲" forKey:@"introduction"];
+    [fifthMusic setValue:@"2minute" forKey:@"time"];
+    [fifthMusic setValue:firstImageData forKey:@"image"];
+    [fifthMusic setValue:[NSSet setWithObject:firstMusicComment] forKey:@"comments"];
+    
+    [self.managedObjectContext save:nil];
+}
 -(void)loadUserCoreData{
     NSManagedObjectContext *moc=self.managedObjectContext;
     NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"User"];
@@ -177,8 +253,9 @@
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
     // Insert code here to initialize your application
     [self loadMovieCoreData];
-    [self loadUserCoreData];
-    [self readingTemperUser];
+    [self loadMusicCoreData];
+    //[self loadUserCoreData];
+    //[self readingTemperUser];
     self.mainWindowController=[[MainWindowController alloc]initWithWindowNibName:@"MainWindow"];
 }
 
@@ -213,6 +290,15 @@
 +(Movie *)setStaticMovie:(Movie *)newMovie{
     staticMovie=newMovie;
     return staticMovie;
+}
+
++(Music *)getStaticMusic{
+    return  staticMusic;
+}
+
++(Music *)setStaticMusic:(Music *)newMusic{
+    staticMusic=newMusic;
+    return staticMusic;
 }
 //
 

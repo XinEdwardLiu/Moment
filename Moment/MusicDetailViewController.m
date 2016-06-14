@@ -1,21 +1,19 @@
 //
-//  MovieDetailViewController.m
+//  MusicDetailViewController.m
 //  Moment
 //
-//  Created by Edward Liu on 2016-06-07.
+//  Created by Edward Liu on 2016-06-13.
 //  Copyright © 2016 Edward Liu. All rights reserved.
 //
 
-#import "MovieDetailViewController.h"
+#import "MusicDetailViewController.h"
 #import "AppDelegate.h"
-#import "Movie.h"
-#import "Message.h"
-#import "User.h"
-@interface MovieDetailViewController ()
+
+@interface MusicDetailViewController ()
 
 @end
 
-@implementation MovieDetailViewController
+@implementation MusicDetailViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -24,20 +22,20 @@
 
 -(void)viewWillAppear{
     //[self.messageTableView reloadData];
-    [self setMovieValue];
+    [self setMusicValue];
     [self.messageTableView reloadData];
     [self.giveScoreBtn setHidden:NO];
     
 }
 
--(void)setMovieValue{
-    self.nameLabel.stringValue=[[AppDelegate getStaticMovie] valueForKey:@"name"];
-    self.typeLabel.stringValue=[[AppDelegate getStaticMovie] valueForKey:@"type"];
-    self.actorLabel.stringValue=[[AppDelegate getStaticMovie] valueForKey:@"actor"];
-    self.introductionLabel.stringValue=[[AppDelegate getStaticMovie] valueForKey:@"introduction"];
-    self.resultScoreLabel.stringValue=[[AppDelegate getStaticMovie] valueForKey:@"score"];
-    [self.imageView setImage:[[NSImage alloc]initWithData:[[AppDelegate getStaticMovie] valueForKey:@"image"]]];
-    self.score=[[[AppDelegate getStaticMovie] valueForKey:@"score"] floatValue];
+-(void)setMusicValue{
+    self.nameLabel.stringValue=[[AppDelegate getStaticMusic] valueForKey:@"name"];
+    self.typeLabel.stringValue=[[AppDelegate getStaticMusic] valueForKey:@"type"];
+    self.singerLabel.stringValue=[[AppDelegate getStaticMusic] valueForKey:@"singer"];
+    self.introductionLabel.stringValue=[[AppDelegate getStaticMusic] valueForKey:@"introduction"];
+    self.resultScoreLabel.stringValue=[[AppDelegate getStaticMusic] valueForKey:@"score"];
+    [self.imageView setImage:[[NSImage alloc]initWithData:[[AppDelegate getStaticMusic] valueForKey:@"image"]]];
+    self.score=[[[AppDelegate getStaticMusic] valueForKey:@"score"] floatValue];
     
     NSImage *scoreStarImage;
     
@@ -62,10 +60,9 @@
         [self.addToFavoriteBtn setHidden:YES];
     }
     else{
-        
         [self.addToFavoriteBtn setHidden:NO];
     }
-
+    
 }
 
 -(IBAction)clickOneStarBtn:(id)sender{
@@ -125,17 +122,17 @@
     
     if (accountState==YES) {
         float newScore=(self.score+[self.resultScoreLabel.stringValue floatValue])/2;
-        [AppDelegate getStaticMovie].score=[NSNumber numberWithFloat:newScore];
+        [AppDelegate getStaticMusic].score=[NSNumber numberWithFloat:newScore];
         NSManagedObjectContext *moc=appdelegate.managedObjectContext;
-        NSFetchRequest *request=[[NSFetchRequest alloc]initWithEntityName:@"Movie"];
-        [request setPredicate:[NSPredicate predicateWithFormat:@"name==%@",[AppDelegate getStaticMovie].name]];
+        NSFetchRequest *request=[[NSFetchRequest alloc]initWithEntityName:@"Music"];
+        [request setPredicate:[NSPredicate predicateWithFormat:@"name==%@",[AppDelegate getStaticMusic].name]];
         NSError *error = nil;
         NSArray *results = [moc executeFetchRequest:request error:&error];
         if (!results) {
-            NSLog(@"Error fetching Movie objects: %@\n%@", [error localizedDescription], [error userInfo]);
+            NSLog(@"Error fetching Music objects: %@\n%@", [error localizedDescription], [error userInfo]);
             abort();
         }
-        [results[0] setValue:[AppDelegate getStaticMovie].score forKey:@"score"];
+        [results[0] setValue:[AppDelegate getStaticMusic].score forKey:@"score"];
         [appdelegate.managedObjectContext save:&error];
         [self.giveScoreBtn setHidden:YES];
     }
@@ -166,14 +163,13 @@
             [newMessage setValue:temperTime forKey:@"time"];
             [newMessage setValue:self.message forKey:@"message"];
             
-            NSMutableSet *updateComments = [[AppDelegate getStaticMovie] mutableSetValueForKey:@"comments"];
+            NSMutableSet *updateComments = [[AppDelegate getStaticMusic] mutableSetValueForKey:@"comments"];
             [updateComments addObject:newMessage];
-            NSLog(@"%lu",[[AppDelegate getStaticMovie].comments count]);
             [self.messageTableView reloadData];
             
             NSManagedObjectContext *moc=appdelegate.managedObjectContext;
-            NSFetchRequest *request=[[NSFetchRequest alloc]initWithEntityName:@"Movie"];
-            [request setPredicate:[NSPredicate predicateWithFormat:@"name==%@",[AppDelegate getStaticMovie].name]];
+            NSFetchRequest *request=[[NSFetchRequest alloc]initWithEntityName:@"Music"];
+            [request setPredicate:[NSPredicate predicateWithFormat:@"name==%@",[AppDelegate getStaticMusic].name]];
             NSError *error=nil;
             NSArray *results=[moc executeFetchRequest:request error:&error];
             if (!results) {
@@ -204,37 +200,31 @@
         NSLog(@"Error fetching User objects:%@\n%@",[error localizedDescription],[error userInfo]);
     }
     
-    if ([[results[0] valueForKey:@"favoriteMovie"] count]==0)
+    if ([[results[0] valueForKey:@"favoriteMusic"] count]==0)
     {
-        [results[0] setValue:[NSSet setWithObject:[AppDelegate getStaticMovie]] forKey:@"favoriteMovie"];
+        [results[0] setValue:[NSSet setWithObject:[AppDelegate getStaticMusic]] forKey:@"favoriteMusic"];
         [self.addToFavoriteBtn setImage:[NSImage imageNamed:@"Heart_Full"]];
         [self.addToFavoriteBtn setTitle:@""];
-        //[appdelegate.managedObjectContext save:nil];
     }
     else
     {
-        if ([[results[0] valueForKey:@"favoriteMovie"] containsObject:[AppDelegate getStaticMovie]])
+        if ([[results[0] valueForKey:@"favoriteMusic"] containsObject:[AppDelegate getStaticMusic]])
         {
             [self.addToFavoriteBtn setImage:[NSImage imageNamed:@"Heart_Full"]];
             [self.addToFavoriteBtn setTitle:@""];
             return;
         }
         else{
-            NSMutableSet *set=[results[0] mutableSetValueForKey:@"favoriteMovie"];
-            [set addObject:[AppDelegate getStaticMovie]];
-            [results[0] setValue:set forKey:@"favoriteMovie"];
-            //[appdelegate.managedObjectContext save:nil];
+            NSMutableSet *set=[results[0] mutableSetValueForKey:@"favoriteMusic"];
+            [set addObject:[AppDelegate getStaticMusic]];
+            [results[0] setValue:set forKey:@"favoriteMusic"];
             [self.addToFavoriteBtn setImage:[NSImage imageNamed:@"Heart_Full"]];
             [self.addToFavoriteBtn setTitle:@""];
         }
     }
-   // NSUserDefaults *userDefualts=[NSUserDefaults standardUserDefaults];
-    //[userDefualts setObject:[tempUser valueForKey:@"name"]  forKey:@"Name"];
     [appdelegate.managedObjectContext save:nil];
-    [appdelegate.mainWindowController.aboardViewController.favoriteListViewController.movieFavoriteListTableView reloadData];
+    [appdelegate.mainWindowController.aboardViewController.favoriteListViewController.musicFavoriteListTableView reloadData];
 }
-
-
 
 
 @end

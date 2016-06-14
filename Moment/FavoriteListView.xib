@@ -294,7 +294,7 @@
                                             </textField>
                                         </prototypeCellViews>
                                     </tableColumn>
-                                    <tableColumn identifier="author" width="100" minWidth="10" maxWidth="3.4028234663852886e+38" id="mbj-VC-Svc">
+                                    <tableColumn identifier="singer" width="100" minWidth="10" maxWidth="3.4028234663852886e+38" id="mbj-VC-Svc">
                                         <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left" title="主唱">
                                             <font key="font" metaFont="smallSystem"/>
                                             <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
@@ -365,10 +365,17 @@
                                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                     <font key="font" metaFont="cellTitle"/>
                                                 </buttonCell>
+                                                <connections>
+                                                    <action selector="clickDeleteBtn:" target="UQs-so-ggW" id="nOO-X1-N1b"/>
+                                                </connections>
                                             </button>
                                         </prototypeCellViews>
                                     </tableColumn>
                                 </tableColumns>
+                                <connections>
+                                    <outlet property="dataSource" destination="UQs-so-ggW" id="96f-Ds-oQN"/>
+                                    <outlet property="delegate" destination="UQs-so-ggW" id="CmZ-PN-35d"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <animations/>
@@ -394,6 +401,11 @@
             </subviews>
             <animations/>
         </customView>
+        <customObject id="UQs-so-ggW" customClass="FavoriteMusicListTableController">
+            <connections>
+                <outlet property="musicFavoriteListTableView" destination="zC0-jU-Ftl" id="AO3-3Y-NDA"/>
+            </connections>
+        </customObject>
     </objects>
     <resources>
         <image name="Heart_Full" width="128" height="128"/>
