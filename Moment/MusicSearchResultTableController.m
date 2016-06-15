@@ -70,6 +70,38 @@
         [AppDelegate setStaticMusic:self.musicSearchResultMutableArray[0]];
         [appdelegate.mainWindowController.searchResultViewController.view setHidden:YES];
         [appdelegate.mainWindowController loadMusicDetailView];
+        //
+        if ([AppDelegate getStaticAccountState]==YES)
+        {
+            AppDelegate *appdelegate=[NSApp delegate];
+            NSManagedObjectContext *moc=appdelegate.managedObjectContext;
+            NSFetchRequest *request=[[NSFetchRequest alloc]initWithEntityName:@"User"];
+            [request setPredicate:[NSPredicate predicateWithFormat:@"name==%@",[AppDelegate getStaticUser].name]];
+            NSError *error=nil;
+            NSArray *results=[moc executeFetchRequest:request error:&error];
+            if (!request) {
+                NSLog(@"Error fetching User objects:%@\n%@",[error localizedDescription],[error userInfo]);
+            }
+            
+            if ([[results[0] valueForKey:@"historyMusic"] count]==0)
+            {
+                [results[0] setValue:[NSSet setWithObject:[AppDelegate getStaticMusic]] forKey:@"historyMusic"];
+            }
+            else
+            {
+                if ([[results[0] valueForKey:@"historyMusic"] containsObject:[AppDelegate getStaticMusic]])
+                {
+                    return;
+                }
+                else{
+                    NSMutableSet *set=[results[0] mutableSetValueForKey:@"historyMusic"];
+                    [set addObject:[AppDelegate getStaticMusic]];
+                    [results[0] setValue:set forKey:@"historyMusic"];
+                }
+            }
+            [appdelegate.managedObjectContext save:nil];
+            [appdelegate.mainWindowController.aboardViewController.historyListViewController.musicHistoryListTableView reloadData];
+        }
     }
 }
 

@@ -67,4 +67,9 @@
     
     return nil;
 }
+
+-(IBAction)clickMovieHistoryTableView:(id)sender{
+
+
+}
 @end

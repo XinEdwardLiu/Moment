@@ -21,7 +21,7 @@
                 <scrollView fixedFrame="YES" autohidesScrollers="YES" horizontalLineScroll="32" horizontalPageScroll="10" verticalLineScroll="32" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iHJ-Ne-sdR">
                     <rect key="frame" x="0.0" y="0.0" width="425" height="468"/>
                     <clipView key="contentView" ambiguous="YES" id="bOt-Ck-xcv">
-                        <rect key="frame" x="1" y="23" width="423" height="444"/>
+                        <rect key="frame" x="1" y="0.0" width="423" height="467"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" alternatingRowBackgroundColors="YES" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" rowHeight="30" headerView="FfG-Ac-3y1" viewBased="YES" id="Dwk-aj-Hvi">
@@ -171,7 +171,7 @@
                     </clipView>
                     <animations/>
                     <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="YES" id="CEe-tR-3Lm">
-                        <rect key="frame" x="1" y="452" width="421" height="15"/>
+                        <rect key="frame" x="1" y="8" width="0.0" height="15"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <animations/>
                     </scroller>
@@ -189,7 +189,7 @@
                 <scrollView fixedFrame="YES" autohidesScrollers="YES" horizontalLineScroll="32" horizontalPageScroll="10" verticalLineScroll="32" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pjf-AQ-lRF">
                     <rect key="frame" x="423" y="0.0" width="423" height="468"/>
                     <clipView key="contentView" ambiguous="YES" id="FJU-jy-jF5">
-                        <rect key="frame" x="1" y="23" width="421" height="444"/>
+                        <rect key="frame" x="1" y="0.0" width="421" height="467"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" alternatingRowBackgroundColors="YES" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" rowHeight="30" headerView="S3v-mk-yxs" viewBased="YES" id="gwv-wr-IlY">
@@ -339,7 +339,7 @@
                     </clipView>
                     <animations/>
                     <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="YES" id="jpG-9g-W8r">
-                        <rect key="frame" x="1" y="452" width="421" height="15"/>
+                        <rect key="frame" x="1" y="8" width="0.0" height="15"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <animations/>
                     </scroller>
