@@ -17,6 +17,7 @@
                 <outlet property="musicAllTableView" destination="Au9-bE-xGs" id="KRd-Ag-QYl"/>
                 <outlet property="musicBtn" destination="K8v-2a-Cn7" id="Nb3-wG-34I"/>
                 <outlet property="musicRankTableView" destination="XUx-1w-m3Y" id="w2U-NB-1f5"/>
+                <outlet property="searchField" destination="tt2-oa-j1K" id="EcK-Ok-SVx"/>
                 <outlet property="window" destination="F0z-JX-Cv5" id="gIp-Ho-8D9"/>
             </connections>
         </customObject>
@@ -70,12 +71,11 @@
                         <font key="font" metaFont="system"/>
                         <tabViewItems>
                             <tabViewItem label="Main" identifier="1" id="aEq-w9-Kxw" userLabel="Main">
-                                <view key="view" id="cd2-r6-vYQ">
-                                    <rect key="frame" x="0.0" y="0.0" width="846" height="468"/>
+                                <view key="view" ambiguous="YES" id="cd2-r6-vYQ">
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <scrollView fixedFrame="YES" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" hasVerticalScroller="NO" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gdR-x9-Sqm">
-                                            <rect key="frame" x="0.0" y="0.0" width="846" height="468"/>
+                                            <rect key="frame" x="0.0" y="-468" width="846" height="468"/>
                                             <clipView key="contentView" ambiguous="YES" id="chH-5g-XY9">
                                                 <rect key="frame" x="1" y="1" width="844" height="466"/>
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -100,7 +100,7 @@
                                             </scroller>
                                         </scrollView>
                                         <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nNb-Vt-atL">
-                                            <rect key="frame" x="171" y="305" width="162" height="162"/>
+                                            <rect key="frame" x="171" y="-163" width="162" height="162"/>
                                             <animations/>
                                             <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="澳门风云" imagePosition="only" alignment="center" imageScaling="proportionallyUpOrDown" inset="2" id="2Pz-P3-Yiw">
                                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -108,7 +108,7 @@
                                             </buttonCell>
                                         </button>
                                         <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pb4-3P-NA1">
-                                            <rect key="frame" x="528" y="308" width="162" height="162"/>
+                                            <rect key="frame" x="528" y="-160" width="162" height="162"/>
                                             <animations/>
                                             <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="Let it go" imagePosition="only" alignment="center" imageScaling="proportionallyUpOrDown" inset="2" id="bpv-9f-wFX">
                                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -116,7 +116,7 @@
                                             </buttonCell>
                                         </button>
                                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0VD-K8-mNE">
-                                            <rect key="frame" x="423" y="307" width="88" height="19"/>
+                                            <rect key="frame" x="423" y="-161" width="88" height="19"/>
                                             <animations/>
                                             <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="justified" title="音乐风云榜：" id="aAF-N4-h6M">
                                                 <font key="font" size="15" name="STHeitiSC-Medium"/>
@@ -125,7 +125,7 @@
                                             </textFieldCell>
                                         </textField>
                                         <scrollView fixedFrame="YES" borderType="none" horizontalLineScroll="30" horizontalPageScroll="10" verticalLineScroll="30" verticalPageScroll="10" hasHorizontalScroller="NO" hasVerticalScroller="NO" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RXh-UY-d09">
-                                            <rect key="frame" x="423" y="0.0" width="423" height="303"/>
+                                            <rect key="frame" x="423" y="-468" width="423" height="303"/>
                                             <clipView key="contentView" ambiguous="YES" drawsBackground="NO" copiesOnScroll="NO" id="n2S-kG-YHD">
                                                 <rect key="frame" x="0.0" y="0.0" width="423" height="303"/>
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -213,7 +213,7 @@
                                             </scroller>
                                         </scrollView>
                                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2JV-1l-jcF">
-                                            <rect key="frame" x="0.0" y="307" width="88" height="22"/>
+                                            <rect key="frame" x="0.0" y="-161" width="88" height="22"/>
                                             <animations/>
                                             <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="justified" title="电影风云榜：" id="1FA-NY-dga">
                                                 <font key="font" size="15" name="STHeitiSC-Medium"/>
@@ -222,7 +222,7 @@
                                             </textFieldCell>
                                         </textField>
                                         <scrollView fixedFrame="YES" borderType="none" horizontalLineScroll="30" horizontalPageScroll="10" verticalLineScroll="30" verticalPageScroll="10" hasHorizontalScroller="NO" hasVerticalScroller="NO" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ooc-ug-a1x">
-                                            <rect key="frame" x="0.0" y="0.0" width="423" height="303"/>
+                                            <rect key="frame" x="0.0" y="-468" width="423" height="303"/>
                                             <clipView key="contentView" ambiguous="YES" drawsBackground="NO" copiesOnScroll="NO" id="r4t-pp-1Er">
                                                 <rect key="frame" x="0.0" y="0.0" width="423" height="303"/>
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -576,7 +576,7 @@
                                 </view>
                             </tabViewItem>
                             <tabViewItem label="Music" identifier="3" id="YON-jk-RDY" userLabel="Music">
-                                <view key="view" ambiguous="YES" id="5yn-BY-6qI">
+                                <view key="view" id="5yn-BY-6qI">
                                     <rect key="frame" x="0.0" y="0.0" width="846" height="468"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
@@ -821,11 +821,14 @@
                     <searchField wantsLayer="YES" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tt2-oa-j1K">
                         <rect key="frame" x="804" y="538" width="154" height="22"/>
                         <animations/>
-                        <searchFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" borderStyle="bezel" usesSingleLineMode="YES" bezelStyle="round" recentsAutosaveName="" id="xpi-Pa-hSg">
+                        <searchFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" borderStyle="bezel" usesSingleLineMode="YES" bezelStyle="round" sendsWholeSearchString="YES" recentsAutosaveName="" id="xpi-Pa-hSg">
                             <font key="font" metaFont="system"/>
                             <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                         </searchFieldCell>
+                        <connections>
+                            <action selector="clickSearchField:" target="-2" id="NdG-Kn-PSR"/>
+                        </connections>
                     </searchField>
                     <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xTL-2U-bXT">
                         <rect key="frame" x="424" y="517" width="176" height="57"/>

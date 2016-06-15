@@ -11,12 +11,14 @@
 #import "AboardViewController.h"
 #import "MovieDetailViewController.h"
 #import "MusicDetailViewController.h"
+#import "SearchResultViewController.h"
 
 @interface MainWindowController : NSWindowController
 @property (strong) IBOutlet RegisterViewController *registerViewController;
 @property (strong) IBOutlet AboardViewController *aboardViewController;
 @property (strong) IBOutlet MovieDetailViewController *movieDetailViewController;
 @property (strong) IBOutlet MusicDetailViewController *musicDetailViewController;
+@property (strong) IBOutlet SearchResultViewController *searchResultViewController;
 
 @property IBOutlet NSTabView *mainTab;
 @property NSView *mainView;
@@ -34,9 +36,12 @@
 @property IBOutlet NSTableView *movieRankTableView;
 @property IBOutlet NSTableView *musicRankTableView;
 
+@property IBOutlet NSSearchField *searchField;
+
 -(void)hiddenViews;
 -(void)loadRegisterView;
 -(void)loadAboardView;
 -(void)loadMovieDetailView;
+-(void)loadMusicDetailView;
 
 @end

@@ -17,6 +17,7 @@ static User *staticUser;
 static BOOL staticAccountState;
 static Movie *staticMovie;
 static Music *staticMusic;
+static NSString *staticSearchString;
 
 @interface AppDelegate : NSObject <NSApplicationDelegate>
 
@@ -38,5 +39,7 @@ static Music *staticMusic;
 +(Music *)getStaticMusic;
 +(Music *)setStaticMusic:(Music *)newMusic;
 
++(NSString *)getStaticSearchString;
++(NSString *)setStaticSearchString:(NSString *)newString;
 @end
 

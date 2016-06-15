@@ -9,6 +9,7 @@
 #import <Cocoa/Cocoa.h>
 #import "RegisterInfoViewController.h"
 #import "FavoriteListViewController.h"
+#import "HistoryListViewController.h"
 
 @interface AboardViewController : NSViewController
 @property IBOutlet NSTextField *nameLabel;
@@ -18,4 +19,5 @@
 
 @property (strong) IBOutlet RegisterInfoViewController *registerInfoViewController;
 @property (strong) IBOutlet FavoriteListViewController *favoriteListViewController;
+@property (strong) IBOutlet HistoryListViewController *historyListViewController;
 @end

@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		BD011EA21D09B2D300671579 /* FavoriteListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BD011EA01D09B2D300671579 /* FavoriteListViewController.m */; };
 		BD011EA31D09B2D300671579 /* FavoriteListView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BD011EA11D09B2D300671579 /* FavoriteListView.xib */; };
+		BD02170E1D10431200C0479A /* HistoryMusicListTableController.m in Sources */ = {isa = PBXBuildFile; fileRef = BD02170D1D10431200C0479A /* HistoryMusicListTableController.m */; };
+		BD0217121D105F4900C0479A /* SearchResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BD0217101D105F4900C0479A /* SearchResultViewController.m */; };
+		BD0217131D105F4900C0479A /* SearchResultView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BD0217111D105F4900C0479A /* SearchResultView.xib */; };
+		BD0217161D10CCE100C0479A /* MusicSearchResultTableController.m in Sources */ = {isa = PBXBuildFile; fileRef = BD0217151D10CCE100C0479A /* MusicSearchResultTableController.m */; };
 		BD074D3F1D08CAC2002D4A44 /* MovieDetailCommentTableController.m in Sources */ = {isa = PBXBuildFile; fileRef = BD074D3E1D08CAC2002D4A44 /* MovieDetailCommentTableController.m */; };
 		BD0AC1241D00770100E3E928 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BD0AC1231D00770100E3E928 /* AppDelegate.m */; };
 		BD0AC1271D00770100E3E928 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = BD0AC1261D00770100E3E928 /* main.m */; };
@@ -33,6 +37,8 @@
 		BD0CE5BA1D0F58870015972D /* MovieRankTableController.m in Sources */ = {isa = PBXBuildFile; fileRef = BD0CE5B91D0F58870015972D /* MovieRankTableController.m */; };
 		BD0CE5BD1D0F616C0015972D /* MusicAllTableController.m in Sources */ = {isa = PBXBuildFile; fileRef = BD0CE5BC1D0F616C0015972D /* MusicAllTableController.m */; };
 		BD0CE5C01D0F62E30015972D /* MusicRankTableController.m in Sources */ = {isa = PBXBuildFile; fileRef = BD0CE5BF1D0F62E30015972D /* MusicRankTableController.m */; };
+		BD0CE5C41D0F901C0015972D /* HistoryListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BD0CE5C21D0F901C0015972D /* HistoryListViewController.m */; };
+		BD0CE5C51D0F901C0015972D /* HistoryListView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BD0CE5C31D0F901C0015972D /* HistoryListView.xib */; };
 		BD1E24B41D063A6700FB52E5 /* Message+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = BD1E24A51D063A6700FB52E5 /* Message+CoreDataProperties.m */; };
 		BD1E24B51D063A6700FB52E5 /* Message.m in Sources */ = {isa = PBXBuildFile; fileRef = BD1E24A71D063A6700FB52E5 /* Message.m */; };
 		BD1E24B61D063A6700FB52E5 /* Music+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = BD1E24A91D063A6700FB52E5 /* Music+CoreDataProperties.m */; };
@@ -50,6 +56,13 @@
 		BD011E9F1D09B2D300671579 /* FavoriteListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FavoriteListViewController.h; sourceTree = "<group>"; };
 		BD011EA01D09B2D300671579 /* FavoriteListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FavoriteListViewController.m; sourceTree = "<group>"; };
 		BD011EA11D09B2D300671579 /* FavoriteListView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FavoriteListView.xib; sourceTree = "<group>"; };
+		BD02170C1D10431200C0479A /* HistoryMusicListTableController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HistoryMusicListTableController.h; sourceTree = "<group>"; };
+		BD02170D1D10431200C0479A /* HistoryMusicListTableController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HistoryMusicListTableController.m; sourceTree = "<group>"; };
+		BD02170F1D105F4900C0479A /* SearchResultViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchResultViewController.h; sourceTree = "<group>"; };
+		BD0217101D105F4900C0479A /* SearchResultViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchResultViewController.m; sourceTree = "<group>"; };
+		BD0217111D105F4900C0479A /* SearchResultView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SearchResultView.xib; sourceTree = "<group>"; };
+		BD0217141D10CCE100C0479A /* MusicSearchResultTableController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MusicSearchResultTableController.h; sourceTree = "<group>"; };
+		BD0217151D10CCE100C0479A /* MusicSearchResultTableController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MusicSearchResultTableController.m; sourceTree = "<group>"; };
 		BD074D3D1D08CAC2002D4A44 /* MovieDetailCommentTableController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MovieDetailCommentTableController.h; sourceTree = "<group>"; };
 		BD074D3E1D08CAC2002D4A44 /* MovieDetailCommentTableController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MovieDetailCommentTableController.m; sourceTree = "<group>"; };
 		BD0AC11F1D00770100E3E928 /* Moment.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Moment.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -91,6 +104,9 @@
 		BD0CE5BC1D0F616C0015972D /* MusicAllTableController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MusicAllTableController.m; sourceTree = "<group>"; };
 		BD0CE5BE1D0F62E30015972D /* MusicRankTableController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MusicRankTableController.h; sourceTree = "<group>"; };
 		BD0CE5BF1D0F62E30015972D /* MusicRankTableController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MusicRankTableController.m; sourceTree = "<group>"; };
+		BD0CE5C11D0F901C0015972D /* HistoryListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HistoryListViewController.h; sourceTree = "<group>"; };
+		BD0CE5C21D0F901C0015972D /* HistoryListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HistoryListViewController.m; sourceTree = "<group>"; };
+		BD0CE5C31D0F901C0015972D /* HistoryListView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HistoryListView.xib; sourceTree = "<group>"; };
 		BD1E24A41D063A6700FB52E5 /* Message+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Message+CoreDataProperties.h"; sourceTree = "<group>"; };
 		BD1E24A51D063A6700FB52E5 /* Message+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Message+CoreDataProperties.m"; sourceTree = "<group>"; };
 		BD1E24A61D063A6700FB52E5 /* Message.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Message.h; sourceTree = "<group>"; };
@@ -205,6 +221,16 @@
 				BD011E9F1D09B2D300671579 /* FavoriteListViewController.h */,
 				BD011EA01D09B2D300671579 /* FavoriteListViewController.m */,
 				BD011EA11D09B2D300671579 /* FavoriteListView.xib */,
+				BD02170C1D10431200C0479A /* HistoryMusicListTableController.h */,
+				BD02170D1D10431200C0479A /* HistoryMusicListTableController.m */,
+				BD0CE5C11D0F901C0015972D /* HistoryListViewController.h */,
+				BD0CE5C21D0F901C0015972D /* HistoryListViewController.m */,
+				BD0CE5C31D0F901C0015972D /* HistoryListView.xib */,
+				BD0217141D10CCE100C0479A /* MusicSearchResultTableController.h */,
+				BD0217151D10CCE100C0479A /* MusicSearchResultTableController.m */,
+				BD02170F1D105F4900C0479A /* SearchResultViewController.h */,
+				BD0217101D105F4900C0479A /* SearchResultViewController.m */,
+				BD0217111D105F4900C0479A /* SearchResultView.xib */,
 				BD0AC1301D00770100E3E928 /* Info.plist */,
 				BD0AC1281D00770100E3E928 /* Moment.xcdatamodeld */,
 				BD0AC1251D00770100E3E928 /* Supporting Files */,
@@ -278,6 +304,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BD42A6241D07307C00949CDC /* MovieDetailView.xib in Resources */,
+				BD0CE5C51D0F901C0015972D /* HistoryListView.xib in Resources */,
 				BD0AC12C1D00770100E3E928 /* Assets.xcassets in Resources */,
 				BD011EA31D09B2D300671579 /* FavoriteListView.xib in Resources */,
 				BD0AC1421D00F8DB00E3E928 /* MainWindow.xib in Resources */,
@@ -285,6 +312,7 @@
 				BD0CE5AE1D0F0B840015972D /* MusicDetailView.xib in Resources */,
 				BD0AC1471D0109E800E3E928 /* RegisterView.xib in Resources */,
 				BD0AC14C1D011BF000E3E928 /* RegisterInfoView.xib in Resources */,
+				BD0217131D105F4900C0479A /* SearchResultView.xib in Resources */,
 				BD0AED521D02556A003A4B27 /* AboardView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -302,6 +330,7 @@
 				BD0CE5AD1D0F0B840015972D /* MusicDetailViewController.m in Sources */,
 				BD42A61F1D071DAD00949CDC /* MainMovieTableController.m in Sources */,
 				BD1E24BB1D063A6700FB52E5 /* Movie.m in Sources */,
+				BD0217121D105F4900C0479A /* SearchResultViewController.m in Sources */,
 				BD0AED511D02556A003A4B27 /* AboardViewController.m in Sources */,
 				BD1E24B71D063A6700FB52E5 /* Music.m in Sources */,
 				BD42A6231D07307C00949CDC /* MovieDetailViewController.m in Sources */,
@@ -310,6 +339,7 @@
 				BD074D3F1D08CAC2002D4A44 /* MovieDetailCommentTableController.m in Sources */,
 				BD1E24B81D063A6700FB52E5 /* User+CoreDataProperties.m in Sources */,
 				BD0CE5BA1D0F58870015972D /* MovieRankTableController.m in Sources */,
+				BD0CE5C41D0F901C0015972D /* HistoryListViewController.m in Sources */,
 				BD0CE5BD1D0F616C0015972D /* MusicAllTableController.m in Sources */,
 				BD1E24B41D063A6700FB52E5 /* Message+CoreDataProperties.m in Sources */,
 				BD0CE5B41D0F48F80015972D /* FavoriteMusicListTableController.m in Sources */,
@@ -321,9 +351,11 @@
 				BD0CE5C01D0F62E30015972D /* MusicRankTableController.m in Sources */,
 				BD0AC13D1D00DEF500E3E928 /* MoveableWindow.m in Sources */,
 				BD0CE5B11D0F34D60015972D /* MusicDetailCommentTableController.m in Sources */,
+				BD0217161D10CCE100C0479A /* MusicSearchResultTableController.m in Sources */,
 				BD1E24B51D063A6700FB52E5 /* Message.m in Sources */,
 				BD0AC14B1D011BF000E3E928 /* RegisterInfoViewController.m in Sources */,
 				BD0AC1241D00770100E3E928 /* AppDelegate.m in Sources */,
+				BD02170E1D10431200C0479A /* HistoryMusicListTableController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

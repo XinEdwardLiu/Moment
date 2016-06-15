@@ -38,6 +38,9 @@
                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                         <font key="font" metaFont="system"/>
                     </buttonCell>
+                    <connections>
+                        <action selector="clickHistoryBtn:" target="-2" id="1GC-R8-8lh"/>
+                    </connections>
                 </button>
                 <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CCZ-75-rZm">
                     <rect key="frame" x="45" y="180" width="90" height="37"/>

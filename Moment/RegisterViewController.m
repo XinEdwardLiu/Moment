@@ -37,6 +37,8 @@
     [appdelegate.mainWindowController.window.contentView addSubview:self.registerInfoViewController.view];
     [appdelegate.mainWindowController hiddenViews];
     [appdelegate.mainWindowController.movieDetailViewController.view setHidden:YES];
+    [appdelegate.mainWindowController.musicDetailViewController.view setHidden:YES];
+    [appdelegate.mainWindowController.searchResultViewController.view setHidden:YES];
 }
 
 

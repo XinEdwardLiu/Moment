@@ -300,6 +300,14 @@
     staticMusic=newMusic;
     return staticMusic;
 }
+
++(NSString *)getStaticSearchString{
+    return staticSearchString;
+}
++(NSString *)setStaticSearchString:(NSString *)newString{
+    staticSearchString=newString;
+    return staticSearchString;
+}
 //
 
 #pragma mark - Core Data stack

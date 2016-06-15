@@ -80,6 +80,7 @@
     [self.musicDetailViewController.view setFrame:detailFrame];
 }
 
+
 -(void)hiddenViews{
     [self.mainView setHidden:YES];
     [self.movieView setHidden:YES];
@@ -103,6 +104,8 @@
     [self.registerViewController.registerInfoViewController.view setHidden:YES];
     [self.aboardViewController.registerInfoViewController.view setHidden:YES];
     [self.aboardViewController.favoriteListViewController.view setHidden:YES];
+    [self.aboardViewController.historyListViewController.view setHidden:YES];
+    [self.searchResultViewController.view setHidden:YES];
     
     [self.window.contentView addSubview:self.mainView];
     [self.mainMovieTableView reloadData];
@@ -128,6 +131,7 @@
     [self.registerViewController.registerInfoViewController.view setHidden:YES];
     [self.aboardViewController.registerInfoViewController.view setHidden:YES];
     [self.aboardViewController.favoriteListViewController.view setHidden:YES];
+    [self.searchResultViewController.view setHidden:YES];
 }
 
 -(IBAction)clickMusicBtn:(id)sender{
@@ -149,6 +153,7 @@
     [self.registerViewController.registerInfoViewController.view setHidden:YES];
     [self.aboardViewController.registerInfoViewController.view setHidden:YES];
     [self.aboardViewController.favoriteListViewController.view setHidden:YES];
+    [self.searchResultViewController.view setHidden:YES];
 }
 
 -(IBAction)clickMovieTableView:(id)sender{
@@ -167,8 +172,42 @@
     [AppDelegate setStaticMovie:results[row]];
     [self hiddenViews];
     [self.aboardViewController.favoriteListViewController.view setHidden:YES];
+    [self.aboardViewController.historyListViewController.view setHidden:YES];
     [self loadMovieDetailView];
     [self.movieDetailViewController.view setHidden:NO];
+    //
+    if ([AppDelegate getStaticAccountState]==YES)
+    {
+        AppDelegate *appdelegate=[NSApp delegate];
+        NSManagedObjectContext *moc=appdelegate.managedObjectContext;
+        NSFetchRequest *request=[[NSFetchRequest alloc]initWithEntityName:@"User"];
+        [request setPredicate:[NSPredicate predicateWithFormat:@"name==%@",[AppDelegate getStaticUser].name]];
+        NSError *error=nil;
+        NSArray *results=[moc executeFetchRequest:request error:&error];
+        if (!request) {
+            NSLog(@"Error fetching User objects:%@\n%@",[error localizedDescription],[error userInfo]);
+        }
+        
+        if ([[results[0] valueForKey:@"historyMovie"] count]==0)
+        {
+            [results[0] setValue:[NSSet setWithObject:[AppDelegate getStaticMovie]] forKey:@"historyMovie"];
+        }
+        else
+        {
+            if ([[results[0] valueForKey:@"historyMovie"] containsObject:[AppDelegate getStaticMovie]])
+            {
+                return;
+            }
+            else{
+                NSMutableSet *set=[results[0] mutableSetValueForKey:@"historyMovie"];
+                [set addObject:[AppDelegate getStaticMovie]];
+                [results[0] setValue:set forKey:@"historyMovie"];
+            }
+        }
+        [appdelegate.managedObjectContext save:nil];
+        [appdelegate.mainWindowController.aboardViewController.historyListViewController.movieHistoryListTableView reloadData];
+    }
+
 }
 
 -(IBAction)clickMovieAllTableView:(id)sender{
@@ -187,8 +226,42 @@
     [AppDelegate setStaticMovie:results[row]];
     [self hiddenViews];
     [self.aboardViewController.favoriteListViewController.view setHidden:YES];
+    [self.aboardViewController.historyListViewController.view setHidden:YES];
     [self loadMovieDetailView];
     [self.movieDetailViewController.view setHidden:NO];
+    
+    //
+    if ([AppDelegate getStaticAccountState]==YES)
+    {
+        AppDelegate *appdelegate=[NSApp delegate];
+        NSManagedObjectContext *moc=appdelegate.managedObjectContext;
+        NSFetchRequest *request=[[NSFetchRequest alloc]initWithEntityName:@"User"];
+        [request setPredicate:[NSPredicate predicateWithFormat:@"name==%@",[AppDelegate getStaticUser].name]];
+        NSError *error=nil;
+        NSArray *results=[moc executeFetchRequest:request error:&error];
+        if (!request) {
+            NSLog(@"Error fetching User objects:%@\n%@",[error localizedDescription],[error userInfo]);
+        }
+    
+        if ([[results[0] valueForKey:@"historyMovie"] count]==0)
+        {
+            [results[0] setValue:[NSSet setWithObject:[AppDelegate getStaticMovie]] forKey:@"historyMovie"];
+        }
+        else
+        {
+            if ([[results[0] valueForKey:@"historyMovie"] containsObject:[AppDelegate getStaticMovie]])
+            {
+            return;
+            }
+            else{
+                NSMutableSet *set=[results[0] mutableSetValueForKey:@"historyMovie"];
+                [set addObject:[AppDelegate getStaticMovie]];
+                [results[0] setValue:set forKey:@"historyMovie"];
+        }
+    }
+        [appdelegate.managedObjectContext save:nil];
+        [appdelegate.mainWindowController.aboardViewController.historyListViewController.movieHistoryListTableView reloadData];
+    }
 }
 
 -(IBAction)clickMovieRankTableView:(id)sender{
@@ -208,9 +281,41 @@
     [AppDelegate setStaticMovie:results[row]];
     [self hiddenViews];
     [self.aboardViewController.favoriteListViewController.view setHidden:YES];
+    [self.aboardViewController.historyListViewController.view setHidden:YES];
     [self loadMovieDetailView];
     [self.movieDetailViewController.view setHidden:NO];
-
+//
+    if ([AppDelegate getStaticAccountState]==YES)
+    {
+        AppDelegate *appdelegate=[NSApp delegate];
+        NSManagedObjectContext *moc=appdelegate.managedObjectContext;
+        NSFetchRequest *request=[[NSFetchRequest alloc]initWithEntityName:@"User"];
+        [request setPredicate:[NSPredicate predicateWithFormat:@"name==%@",[AppDelegate getStaticUser].name]];
+        NSError *error=nil;
+        NSArray *results=[moc executeFetchRequest:request error:&error];
+        if (!request) {
+            NSLog(@"Error fetching User objects:%@\n%@",[error localizedDescription],[error userInfo]);
+        }
+        
+        if ([[results[0] valueForKey:@"historyMovie"] count]==0)
+        {
+            [results[0] setValue:[NSSet setWithObject:[AppDelegate getStaticMovie]] forKey:@"historyMovie"];
+        }
+        else
+        {
+            if ([[results[0] valueForKey:@"historyMovie"] containsObject:[AppDelegate getStaticMovie]])
+            {
+                return;
+            }
+            else{
+                NSMutableSet *set=[results[0] mutableSetValueForKey:@"historyMovie"];
+                [set addObject:[AppDelegate getStaticMovie]];
+                [results[0] setValue:set forKey:@"historyMovie"];
+            }
+        }
+        [appdelegate.managedObjectContext save:nil];
+        [appdelegate.mainWindowController.aboardViewController.historyListViewController.movieHistoryListTableView reloadData];
+    }
 }
 
 -(IBAction)clickMusicTableView:(id)sender{
@@ -229,7 +334,40 @@
     [AppDelegate setStaticMusic:results[row]];
     [self hiddenViews];
     [self.aboardViewController.favoriteListViewController.view setHidden:YES];
+    [self.aboardViewController.historyListViewController.view setHidden:YES];
     [self loadMusicDetailView];
+    //
+    if ([AppDelegate getStaticAccountState]==YES)
+    {
+        AppDelegate *appdelegate=[NSApp delegate];
+        NSManagedObjectContext *moc=appdelegate.managedObjectContext;
+        NSFetchRequest *request=[[NSFetchRequest alloc]initWithEntityName:@"User"];
+        [request setPredicate:[NSPredicate predicateWithFormat:@"name==%@",[AppDelegate getStaticUser].name]];
+        NSError *error=nil;
+        NSArray *results=[moc executeFetchRequest:request error:&error];
+        if (!request) {
+            NSLog(@"Error fetching User objects:%@\n%@",[error localizedDescription],[error userInfo]);
+        }
+        
+        if ([[results[0] valueForKey:@"historyMusic"] count]==0)
+        {
+            [results[0] setValue:[NSSet setWithObject:[AppDelegate getStaticMusic]] forKey:@"historyMusic"];
+        }
+        else
+        {
+            if ([[results[0] valueForKey:@"historyMusic"] containsObject:[AppDelegate getStaticMusic]])
+            {
+                return;
+            }
+            else{
+                NSMutableSet *set=[results[0] mutableSetValueForKey:@"historyMusic"];
+                [set addObject:[AppDelegate getStaticMusic]];
+                [results[0] setValue:set forKey:@"historyMusic"];
+            }
+        }
+        [appdelegate.managedObjectContext save:nil];
+        [appdelegate.mainWindowController.aboardViewController.historyListViewController.musicHistoryListTableView reloadData];
+    }
 }
 
 -(IBAction)clickMusicAllTableView:(id)sender{
@@ -248,7 +386,40 @@
     [AppDelegate setStaticMusic:results[row]];
     [self hiddenViews];
     [self.aboardViewController.favoriteListViewController.view setHidden:YES];
+    [self.aboardViewController.historyListViewController.view setHidden:YES];
     [self loadMusicDetailView];
+    //
+    if ([AppDelegate getStaticAccountState]==YES)
+    {
+        AppDelegate *appdelegate=[NSApp delegate];
+        NSManagedObjectContext *moc=appdelegate.managedObjectContext;
+        NSFetchRequest *request=[[NSFetchRequest alloc]initWithEntityName:@"User"];
+        [request setPredicate:[NSPredicate predicateWithFormat:@"name==%@",[AppDelegate getStaticUser].name]];
+        NSError *error=nil;
+        NSArray *results=[moc executeFetchRequest:request error:&error];
+        if (!request) {
+            NSLog(@"Error fetching User objects:%@\n%@",[error localizedDescription],[error userInfo]);
+        }
+        
+        if ([[results[0] valueForKey:@"historyMusic"] count]==0)
+        {
+            [results[0] setValue:[NSSet setWithObject:[AppDelegate getStaticMusic]] forKey:@"historyMusic"];
+        }
+        else
+        {
+            if ([[results[0] valueForKey:@"historyMusic"] containsObject:[AppDelegate getStaticMusic]])
+            {
+                return;
+            }
+            else{
+                NSMutableSet *set=[results[0] mutableSetValueForKey:@"historyMusic"];
+                [set addObject:[AppDelegate getStaticMusic]];
+                [results[0] setValue:set forKey:@"historyMusic"];
+            }
+        }
+        [appdelegate.managedObjectContext save:nil];
+        [appdelegate.mainWindowController.aboardViewController.historyListViewController.musicHistoryListTableView reloadData];
+    }
 }
 
 -(IBAction)clickMusicRankTableView:(id)sender{
@@ -268,7 +439,110 @@
     [AppDelegate setStaticMusic:results[row]];
     [self hiddenViews];
     [self.aboardViewController.favoriteListViewController.view setHidden:YES];
+    [self.aboardViewController.historyListViewController.view setHidden:YES];
     [self loadMusicDetailView];
+    //
+    if ([AppDelegate getStaticAccountState]==YES)
+    {
+        AppDelegate *appdelegate=[NSApp delegate];
+        NSManagedObjectContext *moc=appdelegate.managedObjectContext;
+        NSFetchRequest *request=[[NSFetchRequest alloc]initWithEntityName:@"User"];
+        [request setPredicate:[NSPredicate predicateWithFormat:@"name==%@",[AppDelegate getStaticUser].name]];
+        NSError *error=nil;
+        NSArray *results=[moc executeFetchRequest:request error:&error];
+        if (!request) {
+            NSLog(@"Error fetching User objects:%@\n%@",[error localizedDescription],[error userInfo]);
+        }
+        
+        if ([[results[0] valueForKey:@"historyMusic"] count]==0)
+        {
+            [results[0] setValue:[NSSet setWithObject:[AppDelegate getStaticMusic]] forKey:@"historyMusic"];
+        }
+        else
+        {
+            if ([[results[0] valueForKey:@"historyMusic"] containsObject:[AppDelegate getStaticMusic]])
+            {
+                return;
+            }
+            else{
+                NSMutableSet *set=[results[0] mutableSetValueForKey:@"historyMusic"];
+                [set addObject:[AppDelegate getStaticMusic]];
+                [results[0] setValue:set forKey:@"historyMusic"];
+            }
+        }
+        [appdelegate.managedObjectContext save:nil];
+        [appdelegate.mainWindowController.aboardViewController.historyListViewController.musicHistoryListTableView reloadData];
+    }
+}
+
+//seraching
+- (void)awakeFromNib
+{
+    // add the searchMenu to this control, allowing recent searches to be added.
+    // note that we could build this menu inside our nib, but for clarity we're
+    // building the menu in code to illustrate the use of tags:
+    //		NSSearchFieldRecentsTitleMenuItemTag, NSSearchFieldNoRecentsMenuItemTag, etc.
+    
+    if ([self.searchField respondsToSelector:@selector(setRecentSearches:)])
+    {
+        NSMenu *searchMenu = [[NSMenu alloc] initWithTitle:@"Search Menu"];
+        [searchMenu setAutoenablesItems:YES];
+        
+        // first add our custom menu item (Important note: "action" MUST be valid or the menu item is disabled)
+        NSMenuItem *item = [[NSMenuItem alloc] initWithTitle:@"Custom" action:nil keyEquivalent:@""];
+        [item setTarget: self];
+        [searchMenu insertItem:item atIndex:0];
+        
+        // add our own separator to keep our custom menu separate
+        NSMenuItem *separator =  [NSMenuItem separatorItem];
+        [searchMenu insertItem:separator atIndex:1];
+        
+        NSMenuItem *recentsTitleItem = [[NSMenuItem alloc] initWithTitle:@"Recent Searches" action:nil keyEquivalent:@""];
+        // tag this menu item so NSSearchField can use it and respond to it appropriately
+        [recentsTitleItem setTag:NSSearchFieldRecentsTitleMenuItemTag];
+        [searchMenu insertItem:recentsTitleItem atIndex:2];
+        
+        NSMenuItem *norecentsTitleItem = [[NSMenuItem alloc] initWithTitle:@"No recent searches" action:nil keyEquivalent:@""];
+        // tag this menu item so NSSearchField can use it and respond to it appropriately
+        [norecentsTitleItem setTag:NSSearchFieldNoRecentsMenuItemTag];
+        [searchMenu insertItem:norecentsTitleItem atIndex:3];
+        
+        NSMenuItem *recentsItem = [[NSMenuItem alloc] initWithTitle:@"Recents" action:nil keyEquivalent:@""];
+        // tag this menu item so NSSearchField can use it and respond to it appropriately
+        [recentsItem setTag:NSSearchFieldRecentsMenuItemTag];
+        [searchMenu insertItem:recentsItem atIndex:4];
+        
+        NSMenuItem *separatorItem = (NSMenuItem*)[NSMenuItem separatorItem];
+        // tag this menu item so NSSearchField can use it, by hiding/show it appropriately:
+        [separatorItem setTag:NSSearchFieldRecentsTitleMenuItemTag];
+        [searchMenu insertItem:separatorItem atIndex:5];
+        
+        NSMenuItem *clearItem = [[NSMenuItem alloc] initWithTitle:@"Clear" action:nil keyEquivalent:@""];
+        [clearItem setTag:NSSearchFieldClearRecentsMenuItemTag];	// tag this menu item so NSSearchField can use it
+        [searchMenu insertItem:clearItem atIndex:6];
+        
+        id searchCell = [self.searchField cell];
+        [searchCell setMaximumRecents:20];
+        [searchCell setSearchMenuTemplate:searchMenu];
+    }
+}
+
+-(IBAction)clickSearchField:(id)sender{
+    [self.searchResultViewController.view setHidden:YES];
+    NSString *searchFieldString=self.searchField.stringValue;
+    [AppDelegate setStaticSearchString:searchFieldString];
+    
+    self.searchResultViewController=[[SearchResultViewController alloc]initWithNibName:@"SearchResultView" bundle:nil];
+    NSRect showFrame=NSMakeRect(179, 47.5, 846, 468);
+    [self.searchResultViewController.view setFrame:showFrame];
+    [self hiddenViews];
+    [self.registerViewController.registerInfoViewController.view setHidden:YES];
+    [self.aboardViewController.registerInfoViewController.view setHidden:YES];
+    [self.aboardViewController.favoriteListViewController.view setHidden:YES];
+    [self.aboardViewController.historyListViewController.view setHidden:YES];
+    [self.movieDetailViewController.view setHidden:YES];
+    [self.musicDetailViewController.view setHidden:YES];
+    [self.window.contentView addSubview:self.searchResultViewController.view];
 }
 
 
